@@ -1,12 +1,15 @@
+# For symbols: https://symbl.cc/
+#   or press CTRL+SHIFT+U
+# ✘✔✎☼❱🠗🠕⮬⮯󱃾
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
 version = 3
 final_space = true
 
 [upgrade]
 notice = true
-interval = "168h"
+interval = '168h'
 auto = false
-source = "github"
+source = 'github'
 
 [[blocks]]
   type = 'prompt'
@@ -16,15 +19,15 @@ source = "github"
   [[blocks.segments]]
     type = 'python'
     style = 'plain'
-    background = 'transparent'
     foreground = 'p:gray'
+    background = 'transparent'
     template = '{{ if .Venv }}(venv){{ end }} '
 
   [[blocks.segments]]
     type = 'path'
     style = 'plain'
     background = 'transparent'
-    foreground = 'blue'
+    foreground = 'p:blue'
     template = '{{ .Path }}'
 
     [blocks.segments.properties]
@@ -33,43 +36,36 @@ source = "github"
   [[blocks.segments]]
     type = 'git'
     style = 'plain'
-    foreground = 'p:blue'
     background = 'transparent'
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}↓{{ end }}{{ if gt .Ahead 0 }}↑{{ end }}</>'
+    foreground = 'p:gray'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}🠗{{ end }}{{ if gt .Ahead 0 }}🠕{{ end }}</>'
 
     [blocks.segments.properties]
       branch_icon = ''
       commit_icon = '@'
       fetch_status = true
 
-  [[blocks.segments]]
-    type = 'kubectl'
-    style = 'plain'
-    foreground = 'red'
-    background = 'transparent'
-    template = '☸ {{ .Context }}'
-
 [[blocks]]
-  type = 'rprompt'
+  type = 'prompt'
+  alignment = 'right'
   overflow = 'hidden'
 
   [[blocks.segments]]
     type = 'python'
     style = 'plain'
-    background = 'transparent'
     foreground = 'p:gray'
-    template = ' {{ if .Venv }}({{ .Venv }}){{ end }}'
+    background = 'transparent'
+    template = '{{ if .Venv }}({{ .Venv }}){{ end }} '
 
   [[blocks.segments]]
     type = 'executiontime'
     style = 'plain'
     foreground = 'p:peach'
     background = 'transparent'
-    template = ' {{ .FormattedMs }}'
-    
+    template = '{{ .FormattedMs }}'
+
     [blocks.segments.properties]
       threshold = 5000
-      style = 'austin'
 
 [[blocks]]
   type = 'prompt'
@@ -81,37 +77,36 @@ source = "github"
     style = 'plain'
     background = 'transparent'
     foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}magenta{{end}}"
+      '{{ if gt .Code 0 }}p:red{{ end }}',
+      '{{ if eq .Code 0 }}p:green{{ end }}'
     ]
     template = '❱'
 
 [transient_prompt]
   foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}"
+    '{{ if gt .Code 0 }}p:red{{ end }}',
+    '{{ if eq .Code 0 }}p:green{{ end }}'
   ]
   background = 'transparent'
   template = '❱ '
 
 [secondary_prompt]
-  foreground = 'magenta'
+  foreground = 'p:green'
   background = 'transparent'
   template = '❱❱ '
 
-[pallete]
-  gray = '#6c6c6c'
-  peach = '#fab387'
 
-[[tooltips]]
-type = 'git'
-tips = [ 'git' ]
-style = 'diamond'
-foreground = 'black'
-background = 'yellow'
-leading_diamond = '◀'
-trailing_diamong = '▶'
-template = '{{ .HEAD }}{{ if .Staging.Changed }} {{ .Staging.String}}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} 󰏭{{ .Working.String}}{{ end }}'
-  
-  [toolstips.properties]
-  fetch_status = true
+[[tooltips]] 
+type = 'kubectl'
+tips = [ 'k', 'kubectl', 'helm' ]
+style = 'plain'
+foreground = 'p:blue'
+background = 'transparent'
+template = ' ☼ {{ .Context }}'
+
+[palette]
+gray = '#6c6c6c'
+peach = '#fab387'
+green = '#a6e3a1'
+red = '#f38ba8'
+blue = '#8aadf4'
