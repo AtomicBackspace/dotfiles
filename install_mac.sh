@@ -12,6 +12,8 @@ brew install \
   keepassxc \
   eza \
   tmux \
+  pre-commit \
+  sops \
   opentofu-bin
 
 # ZSH 
