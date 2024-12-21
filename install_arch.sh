@@ -12,6 +12,8 @@ yay -S \
   krunner \
   tor \
   tmux \
+  pre-commit \
+  sops \
   sparrow-wallet
 
 
