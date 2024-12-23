@@ -105,29 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias vi="vim"
-
-alias code="tmux new-session -A -s code"
-
 # Fix GPG interface with Yubikey
 export GPG_TTY=$(tty)
-
-# Prettify listing files
-alias  l='eza -lh  --icons=auto' # long list
-alias ls='eza -1   --icons=auto' # short list
-alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
-alias ld='eza -lhD --icons=auto' # long list dirs
-
-# Helpers
-alias mr="$HOME/mr_helper.sh $@"
-TERRAFORM=$(which terraform)
-alias tf="$TERRAFORM"
-alias tft="tf fmt **/*.tf"
-alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
-
-# Special git aliases
-alias gr="gco master; git pull --prune"
-
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
@@ -168,12 +147,36 @@ alias vim-update="updateVim"
 # Start the SSH agent
 eval "$(ssh-agent -s)"
 
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config $HOME/.zsh/ohmyposh.toml)"
-fi
+## ALIASES
+# Prettify listing files
+alias  l='eza -lh  --icons=auto' # long list
+alias ls='eza -1   --icons=auto' # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
+
+# Special git aliases
+alias gr="gco master; git pull --prune"
+
+# Helpers
+alias vi="vim"
+alias k="kubectl"
+
+# Work
+alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
+alias code="tmux new-session -A -s code"
+alias mr="$HOME/mr_helper.sh $@"
+
+TERRAFORM=$(which terraform)
+alias tf="$TERRAFORM"
+alias tft="tf fmt **/*.tf"
 
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"
 if [ -f $SENSITIVE ]; then
   source $SENSITIVE
+fi
+
+# Make sure this is last
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config $HOME/.zsh/ohmyposh.toml)"
 fi
