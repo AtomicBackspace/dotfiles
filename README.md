@@ -13,7 +13,7 @@ Note: All requirements can be installed by running the install scripts
 ## Git Setup
 ```bash
 git config --local gpg.format ssh
-https://github.com/gitleaks/gitleaksgit config --local user.signingkey ~/PATH/TO/.SSH/KEY.PUB
+git config --local user.signingkey ~/PATH/TO/.SSH/KEY.PUB
 echo "$(git config --get user.email) namespaces=\"git\" $(cat ~/PATH/TO/.SSH/KEY.PUB)" >> ~/.ssh/allowed_signers
 git config --local gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
 git config --local commit.gpgsign true
