@@ -17,6 +17,7 @@ yay -S \
   bat \
   fzf \
   zoxide \
+  flux-bin \
   sparrow-wallet
 
 

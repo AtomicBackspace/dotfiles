@@ -17,6 +17,7 @@ brew install \
   bat \
   fzf \
   zoxide \
+  fluxcd/tap/flux \
   opentofu-bin
 
 # ZSH 

@@ -178,6 +178,7 @@ if [ -f $SENSITIVE ]; then
 fi
 
 # Make sure this is last
+. <(flux completion zsh)
 eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.zsh/ohmyposh.toml)"
