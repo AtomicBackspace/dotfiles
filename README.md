@@ -18,4 +18,5 @@ echo "$(git config --get user.email) namespaces=\"git\" $(cat ~/PATH/TO/.SSH/KEY
 git config --local gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
 git config --local commit.gpgsign true
 git config --local tag.gpgsign true
+git config --local core.sshCommand "ssh -i ~/PATH/TO/.SSH/KEY.PUB"
 ```
