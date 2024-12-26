@@ -14,6 +14,9 @@ yay -S \
   tmux \
   pre-commit \
   sops \
+  bat \
+  fzf \
+  zoxide \
   sparrow-wallet
 
 

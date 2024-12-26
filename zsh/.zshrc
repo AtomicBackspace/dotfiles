@@ -150,7 +150,7 @@ eval "$(ssh-agent -s)"
 ## ALIASES
 # Prettify listing files
 alias  l='eza -lh  --icons=auto' # long list
-alias ls='eza -1   --icons=auto' # short list
+alias ls='eza -1   --icons=auto --group-directories-first' # short list
 alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
 alias ld='eza -lhD --icons=auto' # long list dirs
 
@@ -160,6 +160,7 @@ alias gr="gco master; git pull --prune"
 # Helpers
 alias vi="vim"
 alias k="kubectl"
+alias fzfp="fzf --preview 'bat --color=always {}'"
 
 # Work
 alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
@@ -177,6 +178,7 @@ if [ -f $SENSITIVE ]; then
 fi
 
 # Make sure this is last
+eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.zsh/ohmyposh.toml)"
 fi

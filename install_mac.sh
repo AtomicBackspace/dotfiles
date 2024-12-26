@@ -14,6 +14,9 @@ brew install \
   tmux \
   pre-commit \
   sops \
+  bat \
+  fzf \
+  zoxide \
   opentofu-bin
 
 # ZSH 
