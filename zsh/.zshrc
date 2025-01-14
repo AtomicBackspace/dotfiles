@@ -144,6 +144,17 @@ function updateVim {
 }
 alias vim-update="updateVim"
 
+# Prune all merged branches in git
+function pruneMergedGitBranches {
+  if read -q "choice?Do you want to prune all merged branches? (y/Y for yes): "; then
+    git branch -D `git branch --merged | grep -v \* | xargs`
+  else
+    echo 
+    echo "'$choice' not 'Y' or 'y'. Exiting..."
+  fi
+}
+
+
 # Start the SSH agent
 eval "$(ssh-agent -s)"
 
@@ -156,6 +167,7 @@ alias ld='eza -lhD --icons=auto' # long list dirs
 
 # Special git aliases
 alias gr="gco master; git pull --prune"
+alias gpb="pruneMergedGitBranches"
 
 # Helpers
 alias vi="vim"
