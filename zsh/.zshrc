@@ -173,6 +173,7 @@ alias gpb="pruneMergedGitBranches"
 alias vi="vim"
 alias k="kubectl"
 alias fzfp="fzf --preview 'bat --color=always {}'"
+alias sourceme="source ~/src/source_me.sh"
 
 # Work
 alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'

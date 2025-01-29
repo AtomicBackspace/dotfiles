@@ -13,6 +13,9 @@ stow -t $HOME/.config/kitty kitty
 # Install VIM config and plugins
 stow -t $HOME vim
 
+# Install editorconfig
+stow -t $HOME misc_home
+
 # Clone repositories
 mkdir -p $HOME/.vim/pack/{dist,plugins,tpope}/start
 
