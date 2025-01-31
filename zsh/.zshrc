@@ -109,6 +109,8 @@ source $ZSH/oh-my-zsh.sh
 export GPG_TTY=$(tty)
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export EDITOR="vim"
+export VISUAL="vim"
 
 # Keybindings for moving around in the terminal
 bindkey "^[[1;4D" backward-kill-word
@@ -180,9 +182,10 @@ alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
 alias code="tmux new-session -A -s code"
 alias mr="$HOME/mr_helper.sh $@"
 
-TERRAFORM=$(which terraform)
+TERRAFORM=$(which terraform || which tofu)
 alias tf="$TERRAFORM"
 alias tft="tf fmt **/*.tf"
+alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync"
 
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"
@@ -192,6 +195,8 @@ fi
 
 # Make sure this is last
 . <(flux completion zsh)
+. <(k completion zsh)
+. <(istioctl completion zsh)
 eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.zsh/ohmyposh.toml)"
