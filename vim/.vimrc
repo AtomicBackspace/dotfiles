@@ -1,6 +1,26 @@
-filetype plugin indent on
+" Vundle installation
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+"" Insert Vundle plugins here
+
+Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'prettier/vim-prettier'
+
+"" End insert
+call vundle#end()
+" End Vundle installation
+" -------------------------------
+
 
 " General settings
+filetype plugin indent on
 
 " Tab behaviour
 set tabstop=2
@@ -43,10 +63,7 @@ set backspace=indent,eol,start
 " Document specific settings
 " Spellchecking
 autocmd BufRead,BufNewFile *.md setlocal spell
-
-
-" Plugin settings
-" colorscheme catppuccin_mocha
+set spelllang=en,sv
 
 "" Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -75,9 +92,10 @@ let g:terraform_align=1
 let g:terraform_binary_path="/usr/bin/tofu"
 let g:terraform_fmt_on_save=1
 
+
 "" Prettier
 let g:prettier#exec_cmd_path = "/opt/homebrew/bin/prettier"
-au BufWritePre *.js,*.ts,*.json,*.css,*.md execute "%!prettier --stdin-filepath %"
+au BufWritePre *.js,*.ts,*.json,*.css execute "%!prettier --stdin-filepath %"
 
 " QOL
 cnoreabbrev W! w!
@@ -93,6 +111,7 @@ cnoreabbrev Qall qall
 
 " remove trailing whitespaces
 command! FixWhitespace :%s/\s\+$//e
+command! SortIPs :%sort n /.*\./ | %sort n /\.\d\+\./ | %sort n /\./ | %sort n
 
 " Syntax highlighting syncing when starting
 augroup vimrc-sync-fromstart
