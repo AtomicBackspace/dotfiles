@@ -18,6 +18,12 @@ stow -t $HOME misc_home
 
 # Clone repositories
 mkdir -p $HOME/.vim/pack/{plugins,tpope}/start
+mkdir -p $HOME/.vim/bundle
+
+cd $HOME/.vim/bundle
+if [ ! -d Vundle ]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git
+fi
 
 cd $HOME/.vim/pack/plugins/start
 if [ ! -d vim-terraform ]; then
