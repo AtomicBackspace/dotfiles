@@ -132,12 +132,6 @@ fi
 # vim-update alias
 function updateVim {
   CWD=$(pwd)
-  cd $HOME/.vim/pack/dist/start/vim-airline
-  git pull
-  cd $HOME/.vim/pack/dist/start/vim-airline-themes
-  git pull
-  cd $HOME/.vim/pack/plugins/start/vim-prettier
-  git pull
   cd $HOME/.vim/pack/plugins/start/vim-terraform
   git pull
   cd $HOME/.vim/pack/tpope/start/commentary
@@ -177,11 +171,6 @@ alias k="kubectl"
 alias fzfp="fzf --preview 'bat --color=always {}'"
 alias sourceme="source ~/src/source_me.sh"
 
-# Work
-alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
-alias code="tmux new-session -A -s code"
-alias mr="$HOME/mr_helper.sh $@"
-
 TERRAFORM=$(which terraform || which tofu)
 alias tf="$TERRAFORM"
 alias tft="tf fmt **/*.tf"
@@ -191,6 +180,11 @@ alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomiza
 SENSITIVE="$HOME/.zshrc.sensitive"
 if [ -f $SENSITIVE ]; then
   source $SENSITIVE
+fi
+
+# Import work specific
+if [ "$OSTYPE" != "linux-gnu" ]; then
+  source "$HOME/.zshrc.work"
 fi
 
 # Make sure this is last
