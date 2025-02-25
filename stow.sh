@@ -17,15 +17,14 @@ stow -t $HOME vim
 stow -t $HOME misc_home
 
 # Clone repositories
-mkdir -p $HOME/.vim/pack/{dist,plugins,tpope}/start
-
-cd $HOME/.vim/pack/dist/start
-git clone https://github.com/vim-airline/vim-airline.git
-git clone https://github.com/vim-airline/vim-airline-themes.git
+mkdir -p $HOME/.vim/pack/{plugins,tpope}/start
 
 cd $HOME/.vim/pack/plugins/start
-git clone https://github.com/prettier/vim-prettier
-git clone https://github.com/hashivim/vim-terraform.git
+if [ ! -d vim-terraform ]; then
+  git clone https://github.com/hashivim/vim-terraform.git
+fi
 
 cd $HOME/.vim/pack/tpope/start
-git clone https://github.com/tpope/vim-commentary.git
+if [ ! -d vim-commentary ]; then
+  git clone https://github.com/tpope/vim-commentary.git
+fi
