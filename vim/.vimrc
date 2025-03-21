@@ -12,6 +12,7 @@ Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'prettier/vim-prettier'
+Plugin 'valloric/youcompleteme'
 
 "" End insert
 call vundle#end()
@@ -96,6 +97,13 @@ let g:terraform_fmt_on_save=1
 "" Prettier
 let g:prettier#exec_cmd_path = "/opt/homebrew/bin/prettier"
 au BufWritePre *.js,*.ts,*.json,*.css execute "%!prettier --stdin-filepath %"
+
+
+"" Markdown Preview
+let g:mkdp_preview_options = {
+      \ 'uml': { 'server': 'http://localhost:8080' }
+      \ }
+
 
 " QOL
 cnoreabbrev W! w!

@@ -1,6 +1,18 @@
 # Work
+alias vim="/opt/homebrew/bin/vim"
 alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
 alias mr="$HOME/mr_helper.sh $@"
+alias gli='glab issue create --label Platform --yes --description "" --title '
+
+glib() {
+  ISSUE=$(glab issue create --label Platform --yes --description "" --title $1)
+  TICKET=$(echo $ISSUE | awk -F'/' '{print $NF}')
+  gcb $(slugify "$TICKET $1")
+}
+
+slugify() {
+  echo "$1" | tr '[:upper:]' '[:lower:]' | tr -cd '[:alnum:][:space:]' | tr ' ' '-'
+}
 
 # Keychain env variables
 alias add_secret="f() { security add-generic-password -a \"markus.langenoja\" -s \"$1\" -U -w \"$2\" }; f"
