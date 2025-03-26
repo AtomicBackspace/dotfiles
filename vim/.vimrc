@@ -13,12 +13,13 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'prettier/vim-prettier'
 Plugin 'fatih/vim-go'
+Plugin 'dense-analysis/ale'
+Plugin 'valloric/youcompleteme'
 
 "" End insert
 call vundle#end()
 " End Vundle installation
 " -------------------------------
-
 
 " General settings
 filetype plugin indent on
@@ -89,6 +90,17 @@ let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+
+"" ALE
+let g:ale_linters = {
+      \ 'go': ['gopls'],
+      \}
+
+
+"" YouCompleteME
+highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000 "" Change color of popup
+
 
 "" vim-terraform
 let g:terraform_align=1
