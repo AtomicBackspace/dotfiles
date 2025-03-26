@@ -12,7 +12,7 @@ Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'prettier/vim-prettier'
-Plugin 'valloric/youcompleteme'
+Plugin 'fatih/vim-go'
 
 "" End insert
 call vundle#end()
@@ -72,6 +72,8 @@ let g:airline_theme='powerlineish' " 'deus'
 set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 "" vim-go
+let g:go_def_mod='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
 let g:go_fmt_fail_silently = 1
 let g:go_highlight_types = 1
