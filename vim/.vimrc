@@ -99,7 +99,7 @@ let g:ale_linters = {
 
 
 "" YouCompleteME
-highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#000000 "" Change color of popup
+highlight Pmenu ctermfg=15 ctermbg=8 guifg=#ffffff guibg=#000000 "" Change color of popup
 
 
 "" vim-terraform

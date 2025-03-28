@@ -16,12 +16,3 @@ slugify() {
 
 # Keychain env variables
 alias add_secret="f() { security add-generic-password -a \"markus.langenoja\" -s \"$1\" -U -w \"$2\" }; f"
-
-# Authenticate to GKE daily (only once per day)
-if [[ ! -e /tmp/dev-cluster-$(date +%Y%m%d) ]]; then
-  rm /tmp/dev-cluster-*
-  gcloud container clusters get-credentials swish-backend-dev-gke \
-    --region europe-north1 \
-    --project swish-backend-dev
-  touch /tmp/dev-cluster-$(date +%Y%m%d)
-fi
