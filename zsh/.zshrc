@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/src/flux-config
 
 # Fix colors in terminal
 export TERM=xterm-256color
@@ -122,6 +123,8 @@ if [ "$OSTYPE" = "linux-gnu" ]; then
   # Keybindings for jumping around in text
   bindkey "^[[1;3D" backward-word
   bindkey "^[[1;3C" forward-word
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
 else
   echo "Configuring Mac-specific settings"
   # Keybindings for jumping around in text
@@ -174,7 +177,7 @@ alias sourceme="source ~/src/source_me.sh"
 TERRAFORM=$(which terraform || which tofu)
 alias tf="$TERRAFORM"
 alias tft="tf fmt **/*.tf"
-alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync"
+alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync && flux reconcile kustomization cluster-critical-kustomization && flux reconcile kustomization cluster-high-kustomization && flux reconcile kustomization platform-kustomization"
 
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"
