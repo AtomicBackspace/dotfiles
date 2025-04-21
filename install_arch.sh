@@ -19,7 +19,8 @@ yay -S \
   zoxide \
   flux-bin \
   sparrow-wallet \
-  go
+  go \
+  xclip 
 
 
 # Other installs

@@ -94,12 +94,14 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 soft
 
 "" ALE
 let g:ale_linters = {
+      \ 'python': ['black', 'flake8'],
       \ 'go': ['gopls'],
       \}
 
 
 "" YouCompleteME
 highlight Pmenu ctermfg=15 ctermbg=8 guifg=#ffffff guibg=#000000 "" Change color of popup
+let g:ycm_server_python_interpreter='/usr/bin/python3'
 
 
 "" vim-terraform
