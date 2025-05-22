@@ -1,13 +1,16 @@
 # Work
 alias vim="/opt/homebrew/bin/vim"
 alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
-alias mr="$HOME/mr_helper.sh $@"
 alias gli='glab issue create --label Platform --yes --description "" --title '
 
 glib() {
   ISSUE=$(glab issue create --label Platform --yes --description "" --title $1)
   TICKET=$(echo $ISSUE | awk -F'/' '{print $NF}')
   gcb $(slugify "$TICKET $1")
+}
+
+mr() {
+  git push --set-upstream origin $(git branch --show-current) -o merge_request.title="$(git branch --show-current | tr '-' ' ')" -o merge_request.create -o merge_request.assign="markus.langenoja" -o merge_request.squash -o merge_request.create
 }
 
 slugify() {

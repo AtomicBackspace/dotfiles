@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
 "" Insert Vundle plugins here
 
 Plugin 'iamcco/markdown-preview.nvim'
@@ -18,8 +19,6 @@ Plugin 'valloric/youcompleteme'
 
 "" End insert
 call vundle#end()
-" End Vundle installation
-" -------------------------------
 
 " General settings
 filetype plugin indent on
@@ -61,7 +60,6 @@ set smartcase
 " Fix backspace
 set backspace=indent,eol,start
 
-
 " Document specific settings
 " Spellchecking
 autocmd BufRead,BufNewFile *.md setlocal spell
@@ -69,8 +67,8 @@ set spelllang=en,sv
 
 "" Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish' " 'deus'
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+let g:airline_theme='deus'
+let g:airline_powerline_fonts = 1
 
 "" vim-go
 let g:go_def_mod='gopls'

@@ -11,7 +11,7 @@ mkdir -p $HOME/.config/kitty
 stow -t $HOME/.config/kitty kitty
 
 # Install VIM config and plugins
-stow -t $HOME vim
+stow -t $HOME vim 
 
 # Install editorconfig
 stow -t $HOME misc_home
@@ -21,7 +21,7 @@ mkdir -p $HOME/.vim/pack/{plugins,tpope}/start
 mkdir -p $HOME/.vim/bundle
 
 cd $HOME/.vim/bundle
-if [ ! -d Vundle ]; then
+if [ ! -d Vundle.vim ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git
 fi
 
