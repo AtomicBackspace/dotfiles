@@ -16,6 +16,9 @@ stow -t $HOME vim
 # Install editorconfig
 stow -t $HOME misc_home
 
+# Install gpg config for allowing Yubikeys
+stow -t $HOME/.gnupg gnupg
+
 # Clone repositories
 mkdir -p $HOME/.vim/pack/{plugins,tpope}/start
 mkdir -p $HOME/.vim/bundle
