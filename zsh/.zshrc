@@ -177,7 +177,7 @@ alias sourceme="source ~/src/source_me.sh"
 TERRAFORM=$(which terraform || which tofu)
 alias tf="$TERRAFORM"
 alias tft="tf fmt **/*.tf"
-alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync && flux reconcile kustomization cluster-critical-kustomization && flux reconcile kustomization cluster-high-kustomization && flux reconcile kustomization platform-kustomization"
+alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync && flux reconcile kustomization crds-kustomization && flux reconcile kustomization helm-releases-kustomization && flux reconcile kustomization cluster-critical-kustomization && flux reconcile kustomization cluster-high-kustomization && flux reconcile kustomization platform-kustomization"
 
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"
