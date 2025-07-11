@@ -8,11 +8,13 @@ brew install \
   jandedobbeleer/oh-my-posh/oh-my-posh \
   stow \
   vim \
+  neovim \
   kitty \
   keepassxc \
   eza \
   tmux \
   pre-commit \
+  ripgrep \
   sops \
   bat \
   fzf \

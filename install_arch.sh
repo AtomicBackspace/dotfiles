@@ -4,6 +4,7 @@
 yay -S \
   stow \
   vim \
+  neovim \
   kitty \
   keepassxc \
   eza \
@@ -13,6 +14,7 @@ yay -S \
   tor \
   tmux \
   pre-commit \
+  ripgrep \
   sops \
   bat \
   fzf \

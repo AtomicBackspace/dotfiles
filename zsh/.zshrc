@@ -169,6 +169,7 @@ alias gr="gco master; git pull --prune"
 alias gpb="pruneMergedGitBranches"
 
 # Helpers
+alias vim="nvim"
 alias vi="vim"
 alias k="kubectl"
 alias fzfp="fzf --preview 'bat --color=always {}'"

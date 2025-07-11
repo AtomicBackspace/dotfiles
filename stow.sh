@@ -12,6 +12,7 @@ stow -t $HOME/.config/kitty kitty
 
 # Install VIM config and plugins
 stow -t $HOME vim 
+stow -t $HOME/.config/nvim nvim 
 
 # Install editorconfig
 stow -t $HOME misc_home
