@@ -6,11 +6,13 @@ return {
   config = function()
     local null_ls = require("null-ls")
 
+    local prettier_path = vim.fn.exepath("prettier")
+
     null_ls.setup({
       sources = {
         -- Use Prettier for Markdown, YAML, etc.
         null_ls.builtins.formatting.prettier.with({
-          command = "/opt/homebrew/bin/prettier",
+          command = prettier_path,
           filetypes = { "markdown", "yaml", "json", "html", "css", "javascript", "typescript" },
         }),
       },

@@ -6,7 +6,7 @@ return {
       options = {
         section_separators = "",
         component_separators = "",
-        theme = "eldritch-dark",
+        theme = "eldritch",
       },
       sections = {
         lualine_a = { "mode" },

@@ -3,7 +3,7 @@
 export PATH=$PATH:$HOME/src/flux-config
 
 # Fix colors in terminal
-export TERM=xterm-256color
+export TERM=xterm-kitty
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="amuse"
+# ZSH_THEME="amuse"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -132,17 +132,6 @@ else
   bindkey "^[^[[C" forward-word
 fi
 
-# vim-update alias
-function updateVim {
-  CWD=$(pwd)
-  cd $HOME/.vim/pack/plugins/start/vim-terraform
-  git pull
-  cd $HOME/.vim/pack/tpope/start/commentary
-  git pull
-  cd $CWD
-}
-alias vim-update="updateVim"
-
 # Prune all merged branches in git
 function pruneMergedGitBranches {
   if read -q "choice?Do you want to prune all merged branches? (y/Y for yes): "; then
@@ -178,7 +167,7 @@ alias sourceme="source ~/src/source_me.sh"
 TERRAFORM=$(which terraform || which tofu)
 alias tf="$TERRAFORM"
 alias tft="tf fmt **/*.tf"
-alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync && flux reconcile kustomization crds-kustomization && flux reconcile kustomization helm-releases-kustomization && flux reconcile kustomization cluster-critical-kustomization && flux reconcile kustomization cluster-high-kustomization && flux reconcile kustomization platform-kustomization"
+alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync && flux reconcile kustomization cluster-critical-kustomization && flux reconcile kustomization platform-kustomization"
 
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"
