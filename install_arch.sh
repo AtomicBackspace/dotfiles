@@ -22,6 +22,7 @@ yay -S \
   flux-bin \
   sparrow-wallet \
   go \
+  bash-language-server \
   xclip 
 
 

@@ -23,4 +23,20 @@ vim.cmd [[
   cnoreabbrev Qall qall
 ]]
 
-vim.api.nvim_create_user_command("E", "edit .", {})
+--- Setup Netrw behavior as vim (:E open the directory the current file is located in)
+vim.api.nvim_create_user_command('E', function()
+  vim.cmd('e ' .. vim.fn.expand('%:p:h'))
+end, {})
+
+--- OS Dependent bindings
+local is_mac = vim.fn.has("macunix") == 1
+
+if is_mac then
+  -- MacOS keybindings
+else
+  -- Linux keybindings (using CTRL)
+end
+
+--- Clipboard settings
+vim.api.nvim_set_keymap('n', '<C-c>', '"*y', { noremap = true, silent = true })  -- CTRL+C
+vim.api.nvim_set_keymap('v', '<C-c>', '"*y', { noremap = true, silent = true })  -- CTRL+C

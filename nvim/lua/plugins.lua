@@ -30,6 +30,8 @@ require("lazy").setup({
   { "eldritch-theme/eldritch.nvim", lazy = false, priority = 1000, opts = {},},
 })
 
+vim.cmd('colorscheme eldritch')
+
 require("lualine").setup {
   options = {
     theme = 'eldritch'

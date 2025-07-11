@@ -7,7 +7,6 @@ vim.opt.smartindent = true
 vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.cursorline = true
-vim.o.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"

@@ -21,6 +21,7 @@ brew install \
   zoxide \
   fluxcd/tap/flux \
   opentofu-bin \
+  bash-language-server \
   go
 
 # ZSH 
