@@ -192,6 +192,7 @@ if [ "$OSTYPE" != "linux-gnu" ]; then
 fi
 
 # Make sure this is last
+export PATH="$PATH:$(go env GOPATH)/bin"
 . <(flux completion zsh)
 . <(k completion zsh)
 . <(istioctl completion zsh)

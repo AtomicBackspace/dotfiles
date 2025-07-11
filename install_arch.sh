@@ -15,6 +15,7 @@ yay -S \
   tmux \
   pre-commit \
   ripgrep \
+  fd \
   sops \
   bat \
   fzf \
@@ -23,6 +24,8 @@ yay -S \
   sparrow-wallet \
   go \
   bash-language-server \
+  lua-language-server \
+  yaml-language-server \
   xclip 
 
 

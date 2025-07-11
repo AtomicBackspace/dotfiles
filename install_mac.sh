@@ -15,6 +15,7 @@ brew install \
   tmux \
   pre-commit \
   ripgrep \
+  fd \
   sops \
   bat \
   fzf \
@@ -22,6 +23,8 @@ brew install \
   fluxcd/tap/flux \
   opentofu-bin \
   bash-language-server \
+  lua-language-server \
+  yaml-language-server \
   go
 
 # ZSH 
