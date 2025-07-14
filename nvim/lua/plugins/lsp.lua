@@ -15,7 +15,14 @@ return {
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed      = { "gopls", "pyright", "yamlls" },
+        ensure_installed       = {
+          "gopls",
+          "pyright",
+          "yamlls",
+          "bashls",
+          "pyright",
+          "lua_ls",
+        },
         automatic_installation = true,
       })
 
@@ -34,6 +41,7 @@ return {
               unusedparams = true,
               nilness      = true,
               unusedwrite  = true,
+              useany       = true,
             },
           },
         },
@@ -43,13 +51,14 @@ return {
         capabilities = capabilities,
       })
 
-      lspconfig.terraformls.setup({
-        cmd = { "/usr/bin/tofu" },
-      })
+      lspconfig.terraformls.setup({})
 
       lspconfig.bashls.setup({})
 
       lspconfig.yamlls.setup({
+        on_attach = function(client)
+          client.server_capabilities.documentFormattingProvider = true
+        end,
         capabilities = capabilities,
         settings = {
           yaml = {
@@ -62,7 +71,7 @@ return {
             format     = { enable = true },
             hover      = true,
             completion = true,
-          },
+g         },
         },
       })
 

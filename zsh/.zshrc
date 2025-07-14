@@ -169,6 +169,9 @@ alias tf="$TERRAFORM"
 alias tft="tf fmt **/*.tf"
 alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync && flux reconcile kustomization cluster-critical-kustomization && flux reconcile kustomization platform-kustomization"
 
+# environment variables
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
+
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"
 if [ -f $SENSITIVE ]; then

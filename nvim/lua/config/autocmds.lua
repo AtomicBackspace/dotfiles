@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       end
     end
     if attached > 1 then
-      client.stop()
+      client:stop()
     end
   end,
 })

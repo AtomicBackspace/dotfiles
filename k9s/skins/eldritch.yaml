@@ -1,0 +1,137 @@
+# -----------------------------------------------------------------------------
+# Eldritch Dark skin
+# -----------------------------------------------------------------------------
+
+# Styles...
+bg: &bg "#171928"
+bg_dark: &bg_dark "#0f101a"
+bg_highlight: &bg_highlight "#1e2033"
+fg: &fg "#d8e6e6"
+fg_dark: &fg_dark "#8e94b8"
+fg_gutter: &fg_gutter "#2d3249"
+fg_gutter_light: &fg_gutter_light "#4a5584"
+terminal_black: &terminal_black "#2a2e45"
+dark3: &dark3 "#445084"
+comment: &comment "#506299"
+dark5: &dark5 "#3d4775"
+visual: &visual "#554971"
+bg_visual: &bg_visual "#554971"
+bright_cyan: &bright_cyan "#2bafcc"
+cyan: &cyan "#0396b3"
+dark_cyan: &dark_cyan "#0c7a94"
+magenta: &magenta "#8b75d9"
+magenta2: &magenta2 "#94407a"
+magenta3: &magenta3 "#5c2644"
+pink: &pink "#d154a1"
+purple: &purple "#8b75d9"
+orange: &orange "#d4a666"
+yellow: &yellow "#ccd663"
+dark_yellow: &dark_yellow "#a1a34d"
+green: &green "#2dcc82"
+bright_green: &bright_green "#00cc68"
+dark_green: &dark_green "#299e64"
+red: &red "#cc5860"
+bright_red: &bright_red "#cc2935"
+
+foreground: &foreground "#d8e6e6"
+background: &background "#171928"
+current_line: &current_line "#212337"
+selection: &selection "#323449"
+
+# Skin...
+k9s:
+  # General K9s styles
+  body:
+    fgColor: *bg
+    bgColor: *bg
+    logoColor: *purple
+  # Command prompt styles
+  prompt:
+    fgColor: *magenta
+    bgColor: *bg
+    suggestColor: *magenta3
+  # ClusterInfoView styles.
+  info:
+    fgColor: *fg_gutter_light
+    sectionColor: *fg_dark
+  # Dialog styles.
+  dialog:
+    fgColor: *foreground
+    bgColor: *background
+    buttonFgColor: *foreground
+    buttonBgColor: *purple
+    buttonFocusFgColor: *yellow
+    buttonFocusBgColor: *pink
+    labelFgColor: *orange
+    fieldFgColor: *foreground
+  frame:
+    # Borders styles.
+    border:
+      fgColor: *selection
+      focusColor: *fg_gutter
+    menu:
+      fgColor: *foreground
+      keyColor: *pink
+      # Used for favorite namespaces
+      numKeyColor: *pink
+    # CrumbView attributes for history navigation.
+    crumbs:
+      fgColor: *fg
+      bgColor: *bg_highlight
+      activeColor: *comment
+    # Resource status and update styles
+    status:
+      newColor: *magenta
+      modifyColor: *purple
+      addColor: *green
+      errorColor: *red
+      highlightColor: *orange
+      killColor: *comment
+      completedColor: *comment
+    # Border title styles.
+    title:
+      fgColor: *fg
+      bgColor: *bg
+      highlightColor: *orange
+      counterColor: *purple
+      filterColor: *pink
+  views:
+    # Charts skins...
+    charts:
+      bgColor: *bg
+      defaultDialColors:
+        - *purple
+        - *red
+      defaultChartColors:
+        - *purple
+        - *red
+    # TableView attributes.
+    table:
+      fgColor: *fg
+      bgColor: *bg
+      # Header row styles.
+      header:
+        fgColor: *fg
+        bgColor: *bg
+        sorterColor: *cyan
+    # Xray view attributes.
+    xray:
+      fgColor: *fg
+      bgColor: *bg
+      cursorColor: *current_line
+      graphicColor: *purple
+      showIcons: true
+    # YAML info styles.
+    yaml:
+      keyColor: *pink
+      colonColor: *purple
+      valueColor: *fg
+    # Logs styles.
+    logs:
+      fgColor: *fg
+      bgColor: *bg
+      indicator:
+        fgColor: *fg
+        bgColor: *bg
+        toggleOnColor: *green
+        toggleOffColor: *dark3
