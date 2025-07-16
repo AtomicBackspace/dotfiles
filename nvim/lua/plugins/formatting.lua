@@ -15,6 +15,8 @@ return {
           command = prettier_path,
           filetypes = { "markdown", "yaml", "json", "html", "css", "javascript", "typescript" },
         }),
+        -- Use Terraform for tf files
+        null_ls.builtins.formatting.terraform_fmt,
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
