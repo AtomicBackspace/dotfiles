@@ -1,32 +1,13 @@
 return {
   { "b0o/schemastore.nvim" },
   {
-    "williamboman/mason.nvim",
-    build  = ":MasonUpdate",
-    config = true,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     dependencies = {
-      "neovim/nvim-lspconfig",
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        ensure_installed       = {
-          "gopls",
-          "pyright",
-          "yamlls",
-          "bashls",
-          "pyright",
-          "lua_ls",
-        },
-        automatic_installation = true,
-      })
-
-      local lspconfig   = require("lspconfig")
+      local lspconfig    = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       lspconfig.gopls.setup({
@@ -35,10 +16,12 @@ return {
           gopls = {
             gofumpt            = true,
             staticcheck        = true,
+            vulncheck          = "Imports",
             usePlaceholders    = true,
             completeUnimported = true,
-            analyses = {
+            analyses           = {
               unusedparams = true,
+              shadow       = true,
               nilness      = true,
               unusedwrite  = true,
               useany       = true,
@@ -66,16 +49,27 @@ return {
               enable = false,
               url = "",
             },
-            schemas = require('schemastore').yaml.schemas(),
-            validate   = true,
-            format     = { enable = true },
-            hover      = true,
-            completion = true,
-g         },
+            schemas     = require('schemastore').yaml.schemas(),
+            validate    = true,
+            format      = { enable = true },
+            hover       = true,
+            completion  = true,
+          },
         },
       })
 
-      require('lspconfig').lua_ls.setup({
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          if client.server_capabilities.documentFormattingProvider then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format({ async = false })
+              end,
+            })
+          end
+        end,
         settings = {
           Lua = {
             runtime = {
@@ -94,7 +88,6 @@ g         },
           },
         },
       })
-
     end,
   },
 }

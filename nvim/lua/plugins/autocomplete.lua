@@ -2,11 +2,11 @@ return {
   -- Completion engine
   "hrsh7th/nvim-cmp",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",   -- LSP source
-    "hrsh7th/cmp-buffer",     -- buffer words
-    "hrsh7th/cmp-path",       -- file paths
-    "L3MON4D3/LuaSnip",       -- snippet engine
-    "saadparwaiz1/cmp_luasnip", -- snippets source
+    "hrsh7th/cmp-nvim-lsp",         -- LSP source
+    "hrsh7th/cmp-buffer",           -- buffer words
+    "hrsh7th/cmp-path",             -- file paths
+    "L3MON4D3/LuaSnip",             -- snippet engine
+    "saadparwaiz1/cmp_luasnip",     -- snippets source
     "rafamadriz/friendly-snippets", -- ready-to-use snippets
   },
   config = function()
@@ -28,7 +28,10 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<Tab>"] = cmp.mapping.select_next_item(),
         ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({
+          select = true,
+          behavior = cmp.ConfirmBehavior.Replace,
+        }),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-j>"] = cmp.mapping.scroll_docs(4),
         ["<C-k>"] = cmp.mapping.scroll_docs(-4),
@@ -42,5 +45,3 @@ return {
     })
   end,
 }
-
-

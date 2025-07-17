@@ -11,14 +11,15 @@ vim.keymap.set("n", "<C-h>", ":wincmd h<CR>")
 -- Make saving and quitting commands ignore case
 vim.cmd [[
   cnoreabbrev W! w!
-  cnoreabbrev Q! q!
+  cnoreabbrev Q q
+  cnoreabbrev Q! qa!
+  cnoreabbrev q! qa!
   cnoreabbrev Qall! qall!
   cnoreabbrev Wq wq
   cnoreabbrev Wa wa
   cnoreabbrev wQ wq
   cnoreabbrev WQ wq
   cnoreabbrev W w
-  cnoreabbrev Q q
   cnoreabbrev Qall qall
 ]]
 
@@ -28,8 +29,8 @@ vim.api.nvim_create_user_command('E', function()
 end, {})
 
 --- Clipboard settings
-vim.api.nvim_set_keymap('n', '<C-c>', '"*y', { noremap = true, silent = true })  -- CTRL+C
-vim.api.nvim_set_keymap('v', '<C-c>', '"*y', { noremap = true, silent = true })  -- CTRL+C
+vim.api.nvim_set_keymap('n', '<C-c>', '"*y', { noremap = true, silent = true }) -- CTRL+C
+vim.api.nvim_set_keymap('v', '<C-c>', '"*y', { noremap = true, silent = true }) -- CTRL+C
 
 --- Disable command history
 vim.api.nvim_set_keymap("n", "q:", "<nop>", { silent = true })
