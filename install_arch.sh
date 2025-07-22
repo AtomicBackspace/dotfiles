@@ -22,6 +22,7 @@ yay -S \
   flux-bin \
   sparrow-wallet \
   go \
+  clang \
   bash-language-server \
   lua-language-server \
   yaml-language-server \

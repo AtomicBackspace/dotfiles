@@ -25,6 +25,7 @@ brew install \
   lua-language-server \
   yaml-language-server \
   derailed/popeye/popeye \
+  clang \
   go
 
 # ZSH 
