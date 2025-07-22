@@ -15,6 +15,7 @@ brew install \
   pre-commit \
   ripgrep \
   fd \
+  ag \
   sops \
   bat \
   fzf \

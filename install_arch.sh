@@ -15,6 +15,7 @@ yay -S \
   pre-commit \
   ripgrep \
   fd \
+  ag \
   sops \
   bat \
   fzf \

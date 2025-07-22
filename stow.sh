@@ -23,7 +23,3 @@ stow -t $HOME/.gnupg gnupg
 # Install k9s customization
 mkdir -p $HOME/.config/k9s
 stow -t $HOME/.config/k9s k9s
-
-# Clone repositories
-mkdir -p $HOME/.vim/pack/{plugins,tpope}/start
-mkdir -p $HOME/.vim/bundle

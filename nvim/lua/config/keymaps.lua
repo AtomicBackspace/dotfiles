@@ -23,14 +23,12 @@ vim.cmd [[
   cnoreabbrev Qall qall
 ]]
 
---- Setup Netrw behavior as vim (:E open the directory the current file is located in)
-vim.api.nvim_create_user_command('E', function()
-  vim.cmd('e ' .. vim.fn.expand('%:p:h'))
+vim.api.nvim_create_user_command("E", function()
+  require("telescope").extensions.file_browser.file_browser()
 end, {})
 
 --- Clipboard settings
-vim.api.nvim_set_keymap('n', '<C-c>', '"*y', { noremap = true, silent = true }) -- CTRL+C
-vim.api.nvim_set_keymap('v', '<C-c>', '"*y', { noremap = true, silent = true }) -- CTRL+C
+vim.api.nvim_set_keymap('v', '<Leader>c', '"+y', { noremap = true, silent = true }) -- Backslash+C
 
 --- Disable command history
 vim.api.nvim_set_keymap("n", "q:", "<nop>", { silent = true })
