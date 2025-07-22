@@ -24,3 +24,5 @@ vim.opt.incsearch = true
 vim.opt.backspace = { "indent", "eol", "start" }
 
 vim.opt.termguicolors = true
+
+vim.g.netrw_bufsettings = 'nu'

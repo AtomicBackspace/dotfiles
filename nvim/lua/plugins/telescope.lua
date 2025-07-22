@@ -16,9 +16,6 @@ return {
     config = function()
       require("telescope").setup({
         extensions = {
-          ["file_browser"] = {
-            hijack_netrw = true,
-          },
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
           },
@@ -30,17 +27,27 @@ return {
           },
         },
       })
-      -- require("telescope").load_extension("fzf")
 
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<C-p>", builtin.find_files, {})
       vim.keymap.set("n", "<space><space>", builtin.live_grep, {})
-      vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>", {})
+      vim.keymap.set("n", "<leader>e", function()
+        builtin.find_files({
+          vim.fn.expand("%:p:h")
+        })
+      end, {})
       vim.keymap.set("n", "<leader>fg", builtin.oldfiles, {})
       vim.keymap.set("n", "<leader>d", builtin.lsp_definitions, {})
-      vim.keymap.set("n", "<leader>s", ":Telescope live_grep search_dirs={'~/src'}<CR>", {})
+
+      -- Replace netrw properly
+      vim.api.nvim_create_user_command("E", function()
+        builtin.find_files({
+          vim.fn.expand("%:p:h")
+        })
+      end, {})
 
       require("telescope").load_extension("ui-select")
+      require("telescope").load_extension("file_browser")
     end,
   },
 }
