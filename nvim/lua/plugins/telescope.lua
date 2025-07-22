@@ -35,9 +35,10 @@ return {
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<C-p>", builtin.find_files, {})
       vim.keymap.set("n", "<space><space>", builtin.live_grep, {})
-      vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>")
+      vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>", {})
       vim.keymap.set("n", "<leader>fg", builtin.oldfiles, {})
       vim.keymap.set("n", "<leader>d", builtin.lsp_definitions, {})
+      vim.keymap.set("n", "<leader>s", ":Telescope live_grep search_dirs={'~/src'}<CR>", {})
 
       require("telescope").load_extension("ui-select")
     end,
