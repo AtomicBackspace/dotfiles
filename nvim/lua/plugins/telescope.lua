@@ -31,11 +31,7 @@ return {
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<C-p>", builtin.find_files, {})
       vim.keymap.set("n", "<space><space>", builtin.live_grep, {})
-      vim.keymap.set("n", "<leader>e", function()
-        builtin.find_files({
-          vim.fn.expand("%:p:h")
-        })
-      end, {})
+      vim.keymap.set("n", "<leader>e", ":Telescope file_browser<CR>", {})
       vim.keymap.set("n", "<leader>fg", builtin.oldfiles, {})
       vim.keymap.set("n", "<leader>d", builtin.lsp_definitions, {})
 
