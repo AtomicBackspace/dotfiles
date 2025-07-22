@@ -15,7 +15,7 @@ yay -S \
   pre-commit \
   ripgrep \
   fd \
-  ag \
+  the_silver_searcher \
   sops \
   bat \
   fzf \

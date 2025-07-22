@@ -1,4 +1,4 @@
--- Tab navigate between buffers
+-- Tab navigate between buffers:
 vim.keymap.set("n", "<Tab>", ":bn<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bp<CR>")
 
@@ -23,8 +23,11 @@ vim.cmd [[
   cnoreabbrev Qall qall
 ]]
 
+-- File browsing bindings
 vim.api.nvim_create_user_command("E", function()
-  require("telescope").extensions.file_browser.file_browser()
+  require("telescope").extensions.file_browser.file_browser({
+    vim.fn.expand("%:p:h")
+  })
 end, {})
 
 --- Clipboard settings
