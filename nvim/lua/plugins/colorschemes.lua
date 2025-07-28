@@ -5,6 +5,12 @@ return {
     priority = 1000,
     opts = {
       transparent = true,
+      styles = {
+        keywords = { italic = false },
+      },
+      on_highlights = function(highlights, colors)
+        highlights.MatchParen = { fg = colors.orange, bold = false }
+      end,
     },
     config = function(_, opts)
       require("eldritch").setup(opts)
