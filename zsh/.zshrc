@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/src/flux-config
+export PATH=$PATH:$HOME/src/flux-config:$(go env GOPATH)/bin
 
 # Fix colors in terminal
 export TERM=xterm-kitty
