@@ -144,7 +144,8 @@ function pruneMergedGitBranches {
 
 
 # Start the SSH agent
-eval "$(ssh-agent -s)"
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+unset SSH_AGENT_PID
 
 ## ALIASES
 # Prettify listing files
@@ -184,7 +185,6 @@ if [ "$OSTYPE" != "linux-gnu" ]; then
 fi
 
 # Make sure this is last
-export PATH="$PATH:$(go env GOPATH)/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 . <(flux completion zsh)
 . <(k completion zsh)
 . <(istioctl completion zsh)
