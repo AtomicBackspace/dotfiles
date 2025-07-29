@@ -1,70 +1,94 @@
 return {
-  -- Completion engine
-  "hrsh7th/nvim-cmp",
+  "saghen/blink.cmp",
+  event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",         -- LSP source
-    "hrsh7th/cmp-buffer",           -- buffer words
-    "hrsh7th/cmp-path",             -- file paths
-    "L3MON4D3/LuaSnip",             -- snippet engine
-    "saadparwaiz1/cmp_luasnip",     -- snippets source
-    "rafamadriz/friendly-snippets", -- ready-to-use snippets
+    "rafamadriz/friendly-snippets",
+    {
+      "saghen/blink.compat",
+      version = "2.*",
+      lazy = true,
+      opts = {
+        impersonate_nvim_cmp = true,
+        debug = false,
+      },
+    },
+    {
+      "xzbdmw/colorful-menu.nvim",
+      opts = {
+        fallback_highlight = "@comment",
+      },
+    },
   },
-  config = function()
-    local cmp = require("cmp")
-    local luasnip = require("luasnip")
+  version = "1.*",
 
-    require("luasnip.loaders.from_vscode").lazy_load()
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    keymap = { preset = "default", ["<CR>"] = { "accept", "fallback" } },
+    cmdline = {
+      enabled = true,
+      completion = {
+        menu = {
+          auto_show = false,
+        },
+      },
+    },
+    appearance = {
+      nerd_font_variant = "mono",
+      use_nvim_cmp_as_default = true,
+    },
+    completion = {
+      documentation = {
+        auto_show_delay_ms = 500,
+        auto_show = true,
+        treesitter_highlighting = true,
+        window = {
+          border = "rounded",
+        },
+      },
+      ghost_text = {
+        show_with_selection = true,
+        show_with_menu = true,
+        show_without_menu = false,
+        show_without_selection = false,
+        enabled = false,
+      },
+      list = {
+        selection = {
+          preselect = true,
+          auto_insert = false,
+        },
+      },
+      menu = {
+        auto_show = true,
+        border = "rounded",
+        -- mini icons text
+        draw = {
+          treesitter = { "lsp" },
+          columns = { { "kind_icon" }, { "label", gap = 1 } },
+          components = {
+            label = {
+              text = function(ctx)
+                return require("colorful-menu").blink_components_text(ctx)
+              end,
+              highlight = function(ctx)
+                return require("colorful-menu").blink_components_highlight(ctx)
+              end,
+            },
+          },
+        },
+      },
+    },
+    signature = { enabled = true, window = { border = "rounded" } },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+    },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+  },
+  opts_extend = { "sources.default" },
+  config = function(_, opts)
+    require("blink.cmp").setup(opts)
 
-    cmp.setup({
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
-      },
-      window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-      },
-      mapping = cmp.mapping.preset.insert({
-        ["<C-e>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.locally_jumpable(1) then
-            luasnip.jump(1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<C-q>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<CR>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            if luasnip.expandable() then
-              luasnip.expand()
-            else
-              cmp.confirm({ select = true })
-            end
-          else
-            fallback()
-          end
-        end),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<C-j>"] = cmp.mapping.scroll_docs(4),
-        ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-      }),
-      sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
-      }),
-    })
+    vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities(nil, true) })
   end,
 }

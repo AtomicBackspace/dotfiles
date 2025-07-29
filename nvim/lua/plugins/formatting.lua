@@ -1,37 +1,49 @@
 return {
-  "nvimtools/none-ls.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-  },
-  config = function()
-    local null_ls = require("null-ls")
-
-    local prettier_path = vim.fn.exepath("prettier")
-
-    null_ls.setup({
-      sources = {
-        -- Use Prettier for Markdown, YAML, etc.
-        null_ls.builtins.formatting.prettier.with({
-          command = prettier_path,
-          filetypes = { "markdown", "yaml", "json", "html", "css", "javascript", "typescript" },
-        }),
-        -- Use Terraform for tf files
-        null_ls.builtins.formatting.terraform_fmt,
-      },
-      on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format({ async = false })
-            end,
-          })
-        end
+  "stevearc/conform.nvim",
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
+  keys = {
+    {
+      "<leader>f",
+      function()
+        require("conform").format({ lsp_fallback = true, async = true, timeout_ms = 500 })
       end,
-      vim.keymap.set("n", "<leader>f", function()
-        vim.lsp.buf.format({ async = false })
-      end, { desc = "Format current buffer" }),
-    })
+      desc = "Format document",
+    },
+  },
+  opts = {
+    formatters_by_ft = {
+      lua = { "stylua" },
+      go = { "gofumpt" },
+      javascript = { "prettierd" },
+      typescript = { "prettierd" },
+      css = { "prettierd" },
+      html = { "prettierd" },
+      json = { "prettierd" },
+      markdown = { "prettierd" },
+      md = { "prettierd" },
+      ["_"] = { "trim_whitespace", "trim_newlines" },
+    },
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
+    format_after_save = function()
+      if not vim.g.autoformat then
+        return nil
+      end
+
+      return {
+        async = true,
+        lsp_format = "fallback",
+        timeout_ms = 500,
+      }
+    end,
+  },
+  init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    vim.g.autoformat = true
+  end,
+  config = function(_, opts)
+    require("conform").setup(opts)
   end,
 }

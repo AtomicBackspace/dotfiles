@@ -8,7 +8,6 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -28,6 +27,7 @@ return {
       })
 
       local builtin = require("telescope.builtin")
+
       vim.keymap.set("n", "<C-e>", builtin.find_files, {})
       vim.keymap.set("n", "<C-f>", function()
         builtin.find_files({

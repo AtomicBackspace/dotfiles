@@ -34,8 +34,6 @@ local function organize_imports_and_format()
     for _, action in pairs(res.result or {}) do
       if action.edit then
         vim.lsp.util.apply_workspace_edit(action.edit, "utf-8")
-      else
-        vim.lsp.buf.execute_command(action.command)
       end
     end
   end
@@ -45,4 +43,13 @@ end
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = organize_imports_and_format,
+})
+
+-- Disable auto-commenting on newline
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  desc = "Disable auto comment on new lines",
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
 })

@@ -23,4 +23,8 @@ require("lazy").setup({
   install = { colorscheme = { "tokyonight.nvim" } },
   -- automatically check for plugin updates
   checker = { enabled = true, notify = false, },
+  ui = { border = "rounded" },
+  performance = {
+    cache = { enabled = true },
+  },
 })
