@@ -41,6 +41,7 @@ zsh-256color zsh-autosuggestionts zsh-syntax-highlighting
 # Oh-my-posh
 curl -s https://ohmyposh.dev/install.sh | bash -s
 oh-my-posh font install meslo
+oh-my-posh font install JetBrainsMono
 
 # Install Go LSP
 go install golang.org/x/tools/gopls@latest
