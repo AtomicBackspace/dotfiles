@@ -12,13 +12,15 @@ return {
     },
   },
   opts = {
+    log_level = vim.log.levels.DEBUG,
     formatters_by_ft = {
       lua = { "stylua" },
       go = { "gofumpt" },
       javascript = { "prettierd" },
       typescript = { "prettierd" },
       css = { "prettierd" },
-      html = { "prettierd" },
+      html = { "prettierd", "prettier", stop_after_first = true },
+      gohtml = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettierd" },
       markdown = { "prettierd" },
       md = { "prettierd" },

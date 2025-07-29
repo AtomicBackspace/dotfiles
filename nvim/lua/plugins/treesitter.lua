@@ -9,6 +9,7 @@ return {
       ensure_installed = {
         "bash",
         "c",
+        "css",
         "dockerfile",
         "git_rebase",
         "gitcommit",
@@ -56,6 +57,7 @@ return {
           "regex",
           "go",
           "gomod",
+          "css",
           "sh",
           "markdown",
           "markdown_inline",
