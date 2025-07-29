@@ -199,5 +199,5 @@ echo "Adding zoxide"
 eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   echo "Adding oh-my-posh"
-  eval "$(oh-my-posh init zsh --config $HOME/.zsh/ohmyposh.toml)"
+  eval "$(oh-my-posh init zsh --config $HOME/.zsh/rosepine.omp.json)"
 fi

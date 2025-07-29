@@ -882,7 +882,7 @@ window_border_width 1pt
 #: to be pts. Note that borders are displayed only when more than one
 #: window is visible. They are meant to separate multiple windows.
 
-draw_minimal_borders yes
+# draw_minimal_borders yes
 
 #: Draw only the minimum borders needed. This means that only the
 #: borders that separate the window from a neighbor are drawn. Note
@@ -930,7 +930,7 @@ draw_minimal_borders yes
 #: left, top, top-right, left, center, right, bottom-left, bottom,
 #: bottom-right.
 
-active_border_color #00ff00
+# active_border_color #00ff00
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
@@ -2647,7 +2647,7 @@ map kitty_mod+u    kitten unicode_input
 
 
 # BEGIN_KITTY_FONTS
-font_family      family="JetBrainsMonoNL Nerd Font Mono"
+font_family      family="MesloLGS Nerd Font Mono"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
