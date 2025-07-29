@@ -133,6 +133,7 @@ else
 fi
 
 # Prune all merged branches in git
+echo "Setting up git functions"
 function pruneMergedGitBranches {
   if read -q "choice?Do you want to prune all merged branches? (y/Y for yes): "; then
     git branch -D `git branch --merged | grep -v \* | xargs`
@@ -144,6 +145,7 @@ function pruneMergedGitBranches {
 
 
 # Start the SSH agent
+echo "Starting the GPG SSH agent"
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 unset SSH_AGENT_PID
 
@@ -176,19 +178,26 @@ export K9S_CONFIG_DIR="$HOME/.config/k9s"
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"
 if [ -f $SENSITIVE ]; then
+  echo "Sourcing sensitive config"
   source $SENSITIVE
 fi
 
 # Import work specific
 if [ "$OSTYPE" != "linux-gnu" ]; then
+  echo "Sourcing work config"
   source "$HOME/.zshrc.work"
 fi
 
 # Make sure this is last
+echo "Adding flux completion"
 . <(flux completion zsh)
+echo "Adding kubernetes completion"
 . <(k completion zsh)
+echo "Adding istio completion"
 . <(istioctl completion zsh)
+echo "Adding zoxide"
 eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  echo "Adding oh-my-posh"
   eval "$(oh-my-posh init zsh --config $HOME/.zsh/ohmyposh.toml)"
 fi
