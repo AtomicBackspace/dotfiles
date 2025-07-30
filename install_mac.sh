@@ -13,7 +13,7 @@ brew install \
   kitty \
   keepassxc \
   eza \
-  tmux \
+  bob \
   pre-commit \
   ripgrep \
   fd \
@@ -27,11 +27,12 @@ brew install \
   bash-language-server \
   lua-language-server \
   yaml-language-server \
+  tailwindcss-language-server \
   derailed/popeye/popeye \
   clang \
   go
 
-# ZSH 
+# ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Fonts

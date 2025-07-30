@@ -11,7 +11,7 @@ yay -S \
   opentofu-bin \
   krunner \
   tor \
-  tmux \
+  bob \
   pre-commit \
   ripgrep \
   fd \
@@ -27,14 +27,14 @@ yay -S \
   bash-language-server \
   lua-language-server \
   yaml-language-server \
-  xclip 
-
+  tailwindcss-language-server \
+  xclip
 
 # Other installs
 systemctl enable tor
 systemctl start tor
 
-# ZSH 
+# ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 zsh-256color zsh-autosuggestionts zsh-syntax-highlighting
 
