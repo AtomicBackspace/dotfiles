@@ -78,6 +78,7 @@ function theme {
       # Update k9s theme
       if [ "$OSTYPE" != "linux-gnu" ]; then
         sed -i "" -i "s/skin: rosepine/skin: eldritch/g" $HOME/.config/k9s/config.yaml
+        sed -i "" -i '/NVIM_APPNAME/d' $HOME/.zshenv
       else
         sed -i "s/skin: rosepine/skin: eldritch/g" $HOME/.config/k9s/config.yaml
       fi
@@ -90,6 +91,7 @@ function theme {
       # Use nightly version of nvim
       bob use nightly
       export NVIM_APPNAME="nvim-nightly"
+      echo "NVIM_APPNAME=\"nvim-nightly\"" >> $HOME/.zshenv
       # Update Oh-My-Posh terminal line
       eval "$(oh-my-posh init zsh -c ~/.zsh/rosepine.omp.json)"
       # Update kitty theme
