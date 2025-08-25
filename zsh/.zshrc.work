@@ -1,5 +1,5 @@
 # Work
-alias vim="/opt/homebrew/bin/nvim"
+alias vim="/usr/local/bin/nvim"
 alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
 alias gli='glab issue create --label Platform --yes --description "" --title '
 

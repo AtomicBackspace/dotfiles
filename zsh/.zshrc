@@ -137,6 +137,7 @@ alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomiza
 
 # environment variables
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
+export NVIM_APPNAME="nvim-nightly"
 
 # Import sensitive aliases
 SENSITIVE="$HOME/.zshrc.sensitive"

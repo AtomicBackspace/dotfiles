@@ -7,11 +7,9 @@
 
 brew install \
   zsh \
-  jandedobbeleer/oh-my-posh/oh-my-posh \
   stow \
   neovim \
   kitty \
-  keepassxc \
   eza \
   bob \
   pre-commit \
@@ -23,14 +21,16 @@ brew install \
   fzf \
   zoxide \
   fluxcd/tap/flux \
-  opentofu-bin \
   bash-language-server \
   lua-language-server \
   yaml-language-server \
   tailwindcss-language-server \
   derailed/popeye/popeye \
-  clang \
   go
+
+brew install --cask \
+  keepassxc \
+  jandedobbeleer/oh-my-posh/oh-my-posh
 
 # ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
