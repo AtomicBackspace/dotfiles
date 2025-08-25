@@ -27,13 +27,14 @@ vim.keymap.set({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
 
 -- Plugins
 vim.pack.add({
-  { src = "https://github.com/webhooked/kanso.nvim" },  -- theme
-  { src = "https://github.com/rose-pine/neovim" },      -- theme
-  { src = "https://github.com/echasnovski/mini.pick" }, -- telescope-light
-  { src = "https://github.com/stevearc/oil.nvim" },     -- file browser
-  { src = "https://github.com/neovim/nvim-lspconfig" }, -- LSP configurations
+  { src = "https://github.com/webhooked/kanso.nvim" },         -- theme
+  { src = "https://github.com/rose-pine/neovim" },             -- theme
+  { src = "https://github.com/echasnovski/mini.pick" },        -- telescope-light
+  { src = "https://github.com/stevearc/oil.nvim" },            -- file browser
+  { src = "https://github.com/neovim/nvim-lspconfig" },        -- LSP configurations
   -- Consider adding https://github.com/stevearc/conform.nvim if formatting yaml, md etc gets annoying
-  { src = "https://github.com/Tadaa/vimade" },          -- dimming windows
+  { src = "https://github.com/Tadaa/vimade" },                 -- dimming windows
+  { src = "https://github.com/iamcco/markdown-preview.nvim" }, -- markdown preview
 })
 
 require "mini.pick".setup()
@@ -48,6 +49,14 @@ vim.api.nvim_create_user_command("E", function()
   require("oil").open()
 end, {})
 
+vim.g.mkdp_preview_options = {
+  markdown_it_plugins = {
+    "markdown-it-plantuml"
+  },
+  uml = {
+    server = "http://127.0.0.1:8889"
+  }
+}
 
 -- LSP Features
 local on_attach = function(client, bufnr)
