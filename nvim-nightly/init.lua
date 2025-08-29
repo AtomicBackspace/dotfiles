@@ -203,5 +203,20 @@ vim.lsp.enable({
   "tailwindcss",
 })
 
+-- formatting
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.md" },
+  callback = function()
+    if vim.fn.executeable('prettier') == 1 then
+      local filename = vim.fn.expand("%:p")
+      vim.fn.jobstart({ "prettier", "-w", filename }, {
+        on_exit = function()
+          vim.cmd("edit!")
+        end,
+      })
+    end
+  end,
+})
+
 -- Colorschema
 vim.cmd("colorscheme rose-pine-main")
