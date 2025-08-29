@@ -126,6 +126,7 @@ alias gpb="pruneMergedGitBranches"
 # Helpers
 alias vim="nvim"
 alias vi="vim"
+alias vimdiff="nvim -d"
 alias k="kubectl"
 alias fzfp="fzf --preview 'bat --color=always {}'"
 alias sourceme="source ~/src/source_me.sh"
