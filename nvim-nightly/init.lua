@@ -204,8 +204,20 @@ vim.lsp.enable({
 })
 
 -- formatting
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+    vim.opt_local.textwidth = 0
+    vim.opt_local.formatoptions:remove("t")
+    vim.opt_local.colorcolumn = "80"
+  end,
+})
+
+---- Prettier
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "*.md" },
+  pattern = { "*.md", "*.js" },
   callback = function()
     if vim.fn.executable('prettier') == 1 then
       local filename = vim.fn.expand("%:p")
