@@ -210,7 +210,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = true
     vim.opt_local.linebreak = true
     vim.opt_local.textwidth = 0
-    vim.opt_local.formatoptions:remove("t")
+    vim.opt_local.formatoptions = vim.opt_local.formatoptions - { "t", "c", "r", "o" }
     vim.opt_local.colorcolumn = "80"
   end,
 })
@@ -222,6 +222,21 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     if vim.fn.executable('prettier') == 1 then
       local filename = vim.fn.expand("%:p")
       vim.fn.jobstart({ "prettier", "-w", filename }, {
+        on_exit = function()
+          vim.cmd("edit!")
+        end,
+      })
+    end
+  end,
+})
+
+---- Terraform
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function()
+    if vim.fn.executable('terraform') == 1 then
+      local filename = vim.fn.expand("%:p")
+      vim.fn.jobstart({ "terraform", "fmt", filename }, {
         on_exit = function()
           vim.cmd("edit!")
         end,
