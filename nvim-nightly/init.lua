@@ -59,6 +59,8 @@ vim.g.mkdp_preview_options = {
 }
 
 -- LSP Features
+-- For key bindings, look at `lsp-defaults` in help
+
 local on_attach = function(client, bufnr)
   -- organize imports
   if client.id == "gopls" then
