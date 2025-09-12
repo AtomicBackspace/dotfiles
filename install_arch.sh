@@ -28,6 +28,7 @@ yay -S \
   lua-language-server \
   yaml-language-server \
   tailwindcss-language-server \
+  python-lsp-server \
   xclip
 
 # Other installs

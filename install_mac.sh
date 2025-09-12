@@ -22,6 +22,7 @@ brew install \
   zoxide \
   fluxcd/tap/flux \
   bash-language-server \
+  python-lsp-server \
   lua-language-server \
   yaml-language-server \
   tailwindcss-language-server \

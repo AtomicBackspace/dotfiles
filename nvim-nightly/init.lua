@@ -200,8 +200,9 @@ vim.lsp.config("tailwindcss", {
 })
 
 vim.lsp.enable({
-  "lua_ls",
   "gopls",
+  "lua_ls",
+  "pylsp",
   "tailwindcss",
 })
 
