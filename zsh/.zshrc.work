@@ -1,13 +1,7 @@
 # Work
 alias vim="/usr/local/bin/nvim"
 alias fenv='f() { source `find . -name activate -maxdepth 3` }; f'
-alias gli='glab issue create --label Platform --yes --description "" --title '
-
-glib() {
-  ISSUE=$(glab issue create --label Platform --yes --description "" --title $1)
-  TICKET=$(echo $ISSUE | awk -F'/' '{print $NF}')
-  gcb $(slugify "$TICKET $1")
-}
+alias gli='glab issue create --label Platform --yes --title '
 
 mr() {
   git push --set-upstream origin $(git branch --show-current) -o merge_request.title="$(git branch --show-current | tr '-' ' ')" -o merge_request.create -o merge_request.assign="markus.langenoja" -o merge_request.squash -o merge_request.create
@@ -18,4 +12,4 @@ slugify() {
 }
 
 # Keychain env variables
-alias add_secret="f() { security add-generic-password -a \"markus.langenoja\" -s \"$1\" -U -w \"$2\" }; f"
+alias add_secret="f() { echo \"Run this command:\" && echo \"§ security add-generic-password -a \\\"markus.langenoja\\\" -s \\\"name\\\" -w \\\"secret\\\" -U\" }; f"

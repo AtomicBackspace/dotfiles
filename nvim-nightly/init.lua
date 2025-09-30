@@ -23,7 +23,6 @@ vim.keymap.set('n', '<leader>w', ':write<CR>')
 vim.keymap.set('n', '<leader>q', ':quit<CR>')
 
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
-vim.keymap.set({ 'n', 'v', 'x' }, '<leader>d', '"+d<CR>')
 
 -- Plugins
 vim.pack.add({
@@ -45,6 +44,7 @@ vim.keymap.set('n', '<C-f>', ":Pick files<CR>")
 vim.keymap.set('n', '<C-g>', ":Pick grep_live<CR>")
 vim.keymap.set('n', '<C-e>', ":Oil<CR>")
 vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float)
 vim.api.nvim_create_user_command("E", function()
   require("oil").open()
 end, {})
@@ -128,9 +128,6 @@ local on_attach = function(client, bufnr)
   if client.server_capabilities.semanticTokensProvider then
     vim.lsp.semantic_tokens.enable(true, { client.id, bufnr })
   end
-
-  -- keymaps
-  vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float)
 end
 
 vim.lsp.config("gopls", {
@@ -199,7 +196,12 @@ vim.lsp.config("tailwindcss", {
   on_attach = on_attach,
 })
 
+vim.lsp.config("eslint", {
+  workspace_required = false,
+})
+
 vim.lsp.enable({
+  "eslint",
   "gopls",
   "lua_ls",
   "pylsp",
