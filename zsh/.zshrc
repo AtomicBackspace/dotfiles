@@ -24,8 +24,8 @@ source $ZSH/oh-my-zsh.sh
 export GPG_TTY=$(tty)
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Keybindings for moving around in the terminal
 bindkey "^[[1;4D" backward-kill-word
@@ -138,6 +138,8 @@ alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomiza
 
 # environment variables
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
+export K9S_EDITOR="nvim"
+export KUBE_EDITOR="nvim"
 export NVIM_APPNAME="nvim-nightly"
 
 # Import sensitive aliases
