@@ -235,6 +235,21 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
+---- Python
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.py" },
+  callback = function()
+    if vim.fn.executable('black') == 1 then
+      local filename = vim.fn.expand("%:p")
+      vim.fn.jobstart({ "black", filename }, {
+        on_exit = function()
+          vim.cmd("edit!")
+        end,
+      })
+    end
+  end,
+})
+
 ---- Terraform
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.tf", "*.tfvars" },
