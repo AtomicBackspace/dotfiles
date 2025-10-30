@@ -13,3 +13,5 @@ slugify() {
 
 # Keychain env variables
 alias add_secret="f() { echo \"Run this command:\" && echo \"§ security add-generic-password -a \\\"markus.langenoja\\\" -s \\\"name\\\" -w \\\"secret\\\" -U\" }; f"
+
+alias gl_tf_state="glab opentofu init -R $(git remote get-url --all origin | sed 's/git@gitlab.com://' | sed 's/.git$//') default"
