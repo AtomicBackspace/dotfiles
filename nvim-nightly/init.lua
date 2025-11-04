@@ -37,7 +37,14 @@ vim.pack.add({
   { src = "https://github.com/iamcco/markdown-preview.nvim" }, -- markdown preview
 })
 
-require "mini.pick".setup()
+require "mini.pick".setup({
+  window = {
+    config = function()
+      local width = math.floor(vim.o.columns * 0.4)
+      return { width = width }
+    end,
+  }
+})
 require "oil".setup({ view_options = { show_hidden = true } })
 require "vimade".setup({ ncmode = "windows", fadelevel = 0.65 })
 
