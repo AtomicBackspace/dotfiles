@@ -48,15 +48,25 @@ fi
 
 # Prune all merged branches in git
 echo "Setting up git functions"
-function pruneMergedGitBranches {
-  if read -q "choice?Do you want to prune all merged branches? (y/Y for yes): "; then
-    git branch -D `git branch --merged | grep -v \* | xargs`
+pruneMergedGitBranches() {
+  emulate -L zsh
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 1
+  git fetch --prune -q
+  local current del
+  current=$(git symbolic-ref --quiet --short HEAD 2>/dev/null)
+  del=("${(@f)$(git branch --format='%(refname:short)' --merged origin/master \
+      | grep -vE "^(${current}|master)$")}")
+  (( $#del )) || { echo "Nothing to prune."; return 0; }
+
+  echo "Merged branches to delete:"
+  printf '  %s\n' "${del[@]}"
+
+  if read -q "REPLY?Delete these ${#del} merged branches [y/N]? "; then
+    echo; git branch -d -- ${del}
   else
     echo
-    echo "'$choice' not 'Y' or 'y'. Exiting..."
   fi
 }
-
 
 # Switch between Eldritch and Rosepine (and Neovim versions)
 function theme {
@@ -120,8 +130,9 @@ alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long li
 alias ld='eza -lhD --icons=auto' # long list dirs
 
 # Special git aliases
-alias gr="gco master; git pull --prune"
+alias gr="gco master && git pull --prune && pruneMergedGitBranches"
 alias gpb="pruneMergedGitBranches"
+alias grb="git fetch origin && git rebase origin/HEAD"
 
 # Helpers
 alias vim="nvim"
