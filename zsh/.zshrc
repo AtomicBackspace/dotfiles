@@ -48,21 +48,42 @@ fi
 
 # Prune all merged branches in git
 echo "Setting up git functions"
-pruneMergedGitBranches() {
+pruneGitBranches() {
   emulate -L zsh
   git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return 1
   git fetch --prune -q
-  local current del
-  current=$(git symbolic-ref --quiet --short HEAD 2>/dev/null)
-  del=("${(@f)$(git branch --format='%(refname:short)' --merged origin/master \
-      | grep -vE "^(${current}|master)$")}")
-  (( $#del )) || { echo "Nothing to prune."; return 0; }
+
+  local mode=merged force=0 dry=0 opt
+  while getopts "gafn" opt; do
+    [[ $opt == g ]] && mode=gone
+    [[ $opt == a ]] && mode=all
+    [[ $opt == f ]] && force=1
+    [[ $opt == n ]] && dry=1
+  done
+
+  local cur=$(git symbolic-ref --quiet --short HEAD 2>/dev/null)
+  local -a del
+  if [[ $mode == merged ]]; then
+    del=("${(@f)$(git branch --format='%(refname:short)' --merged origin/master \
+            | grep -vE "^(${cur}|master)$")}")
+  elif [[ $mode == gone ]]; then
+    del=("${(@f)$(git for-each-ref --format='%(upstream:trackshort) %(refname:short)' refs/heads \
+            | awk '$1=="[gone]" {print $2}' \
+            | grep -vE "^(${cur}|master)$")}")
+  else # all
+    del=("${(@f)$(git for-each-ref --format='%(refname:short)' refs/heads \
+            | grep -vE "^(${cur}|master)$")}")
+  fi
+
+  [[ -z ${del[1]-} ]] && { echo "Nothing to prune."; return 0; }
 
   echo "Merged branches to delete:"
   printf '  %s\n' "${del[@]}"
 
-  if read -q "REPLY?Delete these ${#del} merged branches [y/N]? "; then
-    echo; git branch -d -- ${del}
+  (( dry )) && return 0
+  if read -q "REPLY?Delete ${#del} branches [y/N]? "; then
+    echo
+    if (( force )); then git branch -D -- "${del[@]}"; else git branch -d -- "${del[@]}"; fi
   else
     echo
   fi
@@ -130,8 +151,8 @@ alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long li
 alias ld='eza -lhD --icons=auto' # long list dirs
 
 # Special git aliases
-alias gr="gco master && git pull --prune && pruneMergedGitBranches"
-alias gpb="pruneMergedGitBranches"
+alias gr="gco master && git pull --prune && pruneGitBranches"
+alias gpb="pruneGitBranches -a"
 alias grb="git fetch origin && git rebase origin/HEAD"
 
 # Helpers
