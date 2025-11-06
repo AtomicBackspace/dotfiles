@@ -27,12 +27,10 @@ vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
 
 -- Plugins
 vim.pack.add({
-  { src = "https://github.com/webhooked/kanso.nvim" },         -- theme
   { src = "https://github.com/rose-pine/neovim" },             -- theme
   { src = "https://github.com/echasnovski/mini.pick" },        -- telescope-light
   { src = "https://github.com/stevearc/oil.nvim" },            -- file browser
   { src = "https://github.com/neovim/nvim-lspconfig" },        -- LSP configurations
-  -- Consider adding https://github.com/stevearc/conform.nvim if formatting yaml, md etc gets annoying
   { src = "https://github.com/Tadaa/vimade" },                 -- dimming windows
   { src = "https://github.com/iamcco/markdown-preview.nvim" }, -- markdown preview
 })
@@ -204,6 +202,10 @@ vim.lsp.config("tailwindcss", {
   on_attach = on_attach,
 })
 
+vim.lsp.config("terraformls", {
+  on_attach = on_attach,
+})
+
 vim.lsp.config("eslint", {
   workspace_required = false,
 })
@@ -214,6 +216,7 @@ vim.lsp.enable({
   "lua_ls",
   "pylsp",
   "tailwindcss",
+  "terraformls",
 })
 
 -- formatting
