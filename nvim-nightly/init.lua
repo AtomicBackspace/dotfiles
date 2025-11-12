@@ -202,10 +202,6 @@ vim.lsp.config("tailwindcss", {
   on_attach = on_attach,
 })
 
-vim.lsp.config("terraformls", {
-  on_attach = on_attach,
-})
-
 vim.lsp.config("eslint", {
   workspace_required = false,
 })
@@ -216,7 +212,6 @@ vim.lsp.enable({
   "lua_ls",
   "pylsp",
   "tailwindcss",
-  "terraformls",
 })
 
 -- formatting
@@ -233,7 +228,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 ---- Prettier
 vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "*.md", "*.js" },
+  pattern = { "*.md", "*.js", "*.yaml", "*.yml" },
   callback = function()
     if vim.fn.executable('prettier') == 1 then
       local filename = vim.fn.expand("%:p")

@@ -27,6 +27,7 @@ brew install \
   yaml-language-server \
   tailwindcss-language-server \
   derailed/popeye/popeye \
+  hashicorp/tap/terraform-ls \
   go
 
 brew install --cask \

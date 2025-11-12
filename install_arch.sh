@@ -29,6 +29,7 @@ yay -S \
   yaml-language-server \
   tailwindcss-language-server \
   python-lsp-server \
+  terraform-ls \
   xclip
 
 # Other installs
