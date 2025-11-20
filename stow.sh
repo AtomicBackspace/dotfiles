@@ -24,3 +24,7 @@ stow -t $HOME/.gnupg gnupg
 # Install k9s customization
 mkdir -p $HOME/.config/k9s
 stow -t $HOME/.config/k9s k9s
+
+# Install hexchat
+mkdir -p $HOME/.config/hexchat
+stow -t $HOME/.config/hexchat hexchat
