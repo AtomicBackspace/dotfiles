@@ -2,6 +2,8 @@
 
 # Programs
 yay -S \
+  fakeroot \
+  unzip \
   stow \
   neovim \
   kitty \
@@ -30,6 +32,7 @@ yay -S \
   tailwindcss-language-server \
   python-lsp-server \
   terraform-ls \
+  obsidian \
   xclip
 
 # Other installs
