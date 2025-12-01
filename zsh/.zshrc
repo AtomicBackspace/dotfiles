@@ -156,6 +156,7 @@ alias gpb="pruneGitBranches -a"
 alias grb="git fetch origin && git rebase origin/HEAD"
 
 # Helpers
+alias nvim="$HOME/.local/share/bob/nvim-bin/nvim"
 alias vim="nvim"
 alias vi="vim"
 alias vimdiff="nvim -d"
@@ -187,6 +188,8 @@ if [ "$OSTYPE" != "linux-gnu" ]; then
   source "$HOME/.zshrc.work"
 fi
 
+export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
+
 # Make sure this is last
 echo "Adding flux completion"
 . <(flux completion zsh)
@@ -194,9 +197,12 @@ echo "Adding kubernetes completion"
 . <(k completion zsh)
 echo "Adding istio completion"
 . <(istioctl completion zsh)
+echo "Adding bob completion"
+. <(bob complete zsh)
 echo "Adding zoxide"
 eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   echo "Adding oh-my-posh"
   eval "$(oh-my-posh init zsh --config $HOME/.zsh/rosepine.omp.json)"
 fi
+
