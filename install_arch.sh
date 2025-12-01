@@ -30,6 +30,7 @@ yay -S \
   lua-language-server \
   yaml-language-server \
   tailwindcss-language-server \
+  deno \
   python-lsp-server \
   terraform-ls \
   obsidian \
@@ -53,3 +54,7 @@ go install golang.org/x/tools/gopls@latest
 
 # Install popeye
 go install github.com/derailed/popeye@latest
+
+# Use nvim nightly
+bob install nightly
+bob use nightly

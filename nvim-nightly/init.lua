@@ -202,16 +202,16 @@ vim.lsp.config("tailwindcss", {
   on_attach = on_attach,
 })
 
-vim.lsp.config("eslint", {
-  workspace_required = false,
+vim.lsp.config("denols", {
+  on_attach = on_attach,
 })
 
 vim.lsp.enable({
-  "eslint",
   "gopls",
   "lua_ls",
   "pylsp",
   "tailwindcss",
+  "denols",
 })
 
 -- formatting

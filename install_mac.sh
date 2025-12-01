@@ -26,6 +26,7 @@ brew install \
   lua-language-server \
   yaml-language-server \
   tailwindcss-language-server \
+  deno \
   derailed/popeye/popeye \
   hashicorp/tap/terraform-ls \
   go
