@@ -27,13 +27,13 @@ vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y<CR>')
 vim.keymap.set({ 'n', 'v', 'x' }, '<C-c>', '"+y<CR>')
 
 -- Fix swedish letters
-vim.keymap.set('i', ';a', 'ä', { noremap = true })
-vim.keymap.set('i', ';w', 'å', { noremap = true })
-vim.keymap.set('i', ';o', 'ö', { noremap = true })
+vim.keymap.set('i', ";'", 'ä', { noremap = true })
+vim.keymap.set('i', ';[', 'å', { noremap = true })
+vim.keymap.set('i', ';;', 'ö', { noremap = true })
 
-vim.keymap.set('i', ';A', 'Ä', { noremap = true })
-vim.keymap.set('i', ';W', 'Å', { noremap = true })
-vim.keymap.set('i', ';O', 'Ö', { noremap = true })
+vim.keymap.set('i', ';"', 'Ä', { noremap = true })
+vim.keymap.set('i', ';{', 'Å', { noremap = true })
+vim.keymap.set('i', ';:', 'Ö', { noremap = true })
 
 -- Plugins
 vim.pack.add({
