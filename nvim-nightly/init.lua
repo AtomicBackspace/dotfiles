@@ -240,8 +240,13 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.md", "*.js", "*.yaml", "*.yml" },
   callback = function()
+    local filename = vim.fn.expand("%:p")
+
+    if string.find(filename, "Zettelkasten") then
+      return
+    end
+
     if vim.fn.executable('prettier') == 1 then
-      local filename = vim.fn.expand("%:p")
       vim.fn.jobstart({ "prettier", "-w", filename }, {
         on_exit = function()
           vim.cmd("edit!")
