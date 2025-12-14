@@ -242,7 +242,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()
     local filename = vim.fn.expand("%:p")
 
-    if string.find(filename, "Zettelkasten") then
+    if filename:find("Zettelkasten") then
       return
     end
 
