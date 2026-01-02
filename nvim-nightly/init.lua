@@ -74,6 +74,10 @@ vim.g.mkdp_preview_options = {
   }
 }
 
+vim.g.markdown_fenced_languages = {
+  "js=javascript"
+}
+
 -- LSP Features
 -- For key bindings, look at `lsp-defaults` in help
 
@@ -209,10 +213,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.lsp.config("tailwindcss", {
-  on_attach = on_attach,
-})
-
-vim.lsp.config("denols", {
   on_attach = on_attach,
 })
 
