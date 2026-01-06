@@ -1,4 +1,6 @@
 k9s:
+  namespace:
+    active: all
   liveViewAutoRefresh: false
   screenDumpDir: /tmp/k9s-screen-dumps
   refreshRate: 2
