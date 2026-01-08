@@ -1,0 +1,8 @@
+views:
+  kustomize.toolkit.fluxcd.io/v1/kustomizations:
+    columns:
+      - NAMESPACE
+      - READY
+      - NAME
+      - SUSPENDED:.spec.suspend|S
+      - STATUS

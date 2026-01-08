@@ -10,6 +10,7 @@ vim.o.swapfile = false
 vim.o.winborder = "rounded"
 vim.o.completeopt = "menu,menuone,noselect" -- setup for autocompletion with omnifunc
 vim.o.mouse = ""
+vim.o.diffopt = "internal,filler,closeoff,indent-heuristic,inline:char,linematch:40"
 
 -- Navigation
 vim.keymap.set("n", "<Tab>", ":bn<CR>")
