@@ -188,6 +188,8 @@ if [ "$OSTYPE" != "linux-gnu" ]; then
   source "$HOME/.zshrc.work"
 fi
 
+## For Gemini support
+export GOOGLE_CLOUD_PROJECT="gemini-code-assist-b4b3"
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 
 # Make sure this is last
