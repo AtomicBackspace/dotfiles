@@ -126,7 +126,7 @@ function theme {
       # Update Oh-My-Posh terminal line
       eval "$(oh-my-posh init zsh -c ~/.zsh/rosepine.omp.json)"
       # Update kitty theme
-      kitty +kitten themes --reload-in=all Rosé\ Pine
+      kitty +kitten themes --reload-in=all Rosé\ Pine\ Moon
       # Update k9s theme
       if [ "$OSTYPE" != "linux-gnu" ]; then
         sed -i "" -i "s/skin: eldritch/skin: rosepine/g" $HOME/.config/k9s/config.yaml

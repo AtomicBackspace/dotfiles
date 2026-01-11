@@ -449,7 +449,7 @@
 #: The set of URL prefixes to look for when detecting a URL under the
 #: mouse cursor.
 
-# detect_urls yes
+detect_urls yes
 
 #: Detect URLs under the mouse. Detected URLs are highlighted with an
 #: underline and the mouse cursor becomes a hand over them. Even if
@@ -473,7 +473,7 @@
 #: When the mouse hovers over a terminal hyperlink, show the actual
 #: URL that will be activated when the hyperlink is clicked.
 
-# underline_hyperlinks hover
+underline_hyperlinks hover
 
 #: Control how hyperlinks are underlined. They can either be
 #: underlined on mouse hover, always (i.e. permanently underlined) or
@@ -556,7 +556,7 @@
 #: clicks (in seconds). Negative numbers will use the system default
 #: instead, if available, or fallback to 0.5.
 
-# focus_follows_mouse no
+focus_follows_mouse no
 
 #: Set the active window to the window under the mouse when moving the
 #: mouse around. On macOS, this will also cause the OS Window under
@@ -2318,7 +2318,7 @@ window_logo_scale 25
 
 #: Next layout
 
-# map kitty_mod+l next_layout
+map kitty_mod+l next_layout
 
 
 #: You can also create shortcuts to switch to specific layouts::
@@ -2464,7 +2464,8 @@ window_logo_scale 25
 
 #: Unicode input
 
-map kitty_mod+u    kitten unicode_input
+map kitty_mod+u    kitten unicode_input --tab code
+
 # map ctrl+cmd+space kitten unicode_input
 
 #: Edit config file
@@ -2653,7 +2654,7 @@ bold_italic_font auto
 disable_ligatures always
 
 # BEGIN_KITTY_THEME
-# Eldritch
+# Rosé Pine
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -2682,4 +2683,4 @@ enable_audio_bell no
 confirm_os_window_close 1
 
 # Allow writing to all tabs at the same time
-map f3 launch --allow-remote-control kitty +kitten broadcast --match-tab state:focused
+map f12 launch --allow-remote-control kitty +kitten broadcast --match-tab state:focused

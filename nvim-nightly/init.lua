@@ -1,5 +1,6 @@
 vim.o.number = true
 vim.o.relativenumber = true
+vim.o.termguicolors = true
 vim.o.signcolumn = "yes:2"
 vim.o.wrap = false
 vim.o.shiftwidth = 2
@@ -44,6 +45,12 @@ vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },        -- LSP configurations
   { src = "https://github.com/Tadaa/vimade" },                 -- dimming windows
   { src = "https://github.com/iamcco/markdown-preview.nvim" }, -- markdown preview
+})
+
+require("rose-pine").setup({
+  styles = {
+    transparency = true,
+  },
 })
 
 require "mini.pick".setup({
@@ -288,4 +295,4 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 -- Colorschema
-vim.cmd("colorscheme rose-pine-main")
+vim.cmd("colorscheme rose-pine-moon")
