@@ -2,19 +2,12 @@
   "security": {
     "auth": {
       "selectedType": "oauth-personal"
-    }
+    },
+    "disableYoloMode": true
   },
   "general": {
+    "previewFeatures": true,
     "preferredEditor": "neovim",
-    "vimMode": false,
-    "previewFeatures": true
-  },
-  "output": {
-    "format": "text"
-  },
-  "mcpServers": {
-    "GitLab": {
-      "httpUrl": "https://gitlab.com/api/v4/mcp"
-    }
+    "disableAutoUpdate": true
   }
 }
