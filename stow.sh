@@ -5,6 +5,7 @@ stow -t $HOME tmux
 
 # Install zsh config
 stow -t $HOME zsh
+#stow -t $HOME/.zsh oh-my-posh
 
 # Install kitty config
 mkdir -p $HOME/.config/kitty
