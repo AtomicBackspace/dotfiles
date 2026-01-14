@@ -33,3 +33,7 @@ stow -t $HOME/.config/hexchat hexchat
 # Install mpv
 mkdir -p $HOME/.config/mpv
 stow -t $HOME/.config/mpv mpv
+
+# Install gemini
+mkdir -p $HOME/.gemini
+stow -t $HOME/.gemini gemini
