@@ -49,7 +49,7 @@
             "windows": "\ue70f"
           },
           "trailing_diamond": "\ue0b0",
-          "template": " {{ .Icon }} ",
+          "template": " {{ .Icon }} {{ if gt (len .HostName) 10 }}{{ .HostName | trunc 10 }}{{ else }}{{ .HostName }}{{ end }}",
           "foreground": "p:os-fg",
           "background": "p:os-bg",
           "type": "os",
