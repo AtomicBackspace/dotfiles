@@ -26,28 +26,23 @@
 - **Documentation Reviews:** When reviewing external/remote documents (via glab or similar):
   - Explicitly list what was found and what is missing relative to the current task.
   - If a specific document mentioned in a track cannot be found, immediately ask the user for the repository path rather than assuming non-existence.
-- **Phase Completion:** Before concluding a phase, always propose a Manual Verification Plan specifically for the user to review the logical consistency and vocabulary of the outputted documents.
 
 ### 3.2 Session Startup Protocol
 
 **Trigger:** Execute this protocol silently at the very beginning of every new session.
 
-1.  **Context Detection:** Check if the current directory contains a `.conductor/tracks.md` file.
+1.  **Context Detection:** Check if the current directory contains a `.conductor/tracks.md` file, or `conductor/tracks.md` file.
 2.  **Conditional Prompt:**
-    - **If Conductor is NOT detected:** Proceed silently to await user input.
-    - **If Conductor IS detected:** You must IMMEDIATELY output a specific prompt to the user before doing anything else.
-      - **Prompt Text:** "Conductor detected. Generate Project Status Report? (Press Enter for Yes, or type 'skip')"
-3.  **Interaction Handling:**
-    - **If the user presses Enter (sends empty input) OR replies "yes"/"y":** Execute the **Status Overview Protocol** immediately.
-    - **If the user replies "skip", "no", or provides a different instruction:** Abort the status report and proceed with the user's request.
+    - **If Conductor is NOT detected:** Mention it and proceed silently to await user input.
+    - **If Conductor IS detected:** Summarize the current status in a Project Status Report and present it to the user.
 
 ### 3.3 Status Overview Protocol
 
-**Trigger:** Executed when the user confirms the startup prompt or explicitly asks for a "status report" in a Conductor project.
+**Trigger:** When starting up and Conductor is detected.
 
 1.  **Read State:**
-    - Read `.conductor/tracks.md` to list active tracks.
-    - Read `plan.md` for every active track found in `.conductor/tracks/`.
+    - Read `.conductor/tracks.md` or `conductor/tracks.md` to list active tracks.
+    - Read `plan.md` for every active track found in `.conductor/tracks/` or `conductor/tracks/`.
 2.  **Analyze Progress:**
     - Count total phases and tasks across all plans.
     - Identify the specific task currently marked as `[~]` (In Progress).
