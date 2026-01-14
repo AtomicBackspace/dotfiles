@@ -34,6 +34,7 @@ yay -S \
   python-lsp-server \
   terraform-ls \
   obsidian \
+  libsecret \
   xclip
 
 # Other installs
