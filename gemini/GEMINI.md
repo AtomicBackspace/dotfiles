@@ -56,3 +56,6 @@
 - **Conciseness:** Be direct. Avoid fluff.
 - **Proactive Safety:** Always explain potentially destructive shell commands (`rm`, `dd`, `git reset`) before executing.
 - **Memory Usage:** Use `save_memory` for persistent facts about the user (e.g., preferences, common paths).
+
+## Gemini Added Memories
+- The Status Overview Protocol for Conductor should resolve the Tracks Registry and Implementation Plans via the Universal File Resolution Protocol (UFRP) rather than using hardcoded paths.
