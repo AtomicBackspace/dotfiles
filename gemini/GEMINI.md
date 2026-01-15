@@ -58,6 +58,6 @@
 - **Memory Usage:** Use `save_memory` for persistent facts about the user (e.g., preferences, common paths).
 
 ## Gemini Added Memories
-
 - The Status Overview Protocol for Conductor should resolve the Tracks Registry and Implementation Plans via the Universal File Resolution Protocol (UFRP) rather than using hardcoded paths.
 - Only when working in the 'zettelkasten' project, follow the 'Async Review Workflow': create implementation proposals as Obsidian notes (in '1 - Rough Notes') with a '## User Feedback' section and link them as sub-tasks in the relevant TODO file (e.g., '6 - Main Notes/TODO Work.md') for mobile review.
+- In the 'zettelkasten/' project, the 'status?' command requires analyzing git diffs since the 'last_interaction_commit' stored in 'conductor/state.json' to interpret user changes before reporting.
