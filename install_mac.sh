@@ -29,7 +29,7 @@ brew install \
   deno \
   derailed/popeye/popeye \
   hashicorp/tap/terraform-ls \
-  cloudflared \
+  pinentry-mac \
   go
 
 brew install --cask \

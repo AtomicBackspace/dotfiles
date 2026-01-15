@@ -20,7 +20,11 @@ stow -t $HOME/.config/nvim-nightly nvim-nightly
 stow -t $HOME misc_home
 
 # Install gpg config for allowing Yubikeys
-stow -t $HOME/.gnupg gnupg
+if [ $(uname) == "Darwin" ]; then
+  stow -t $HOME/.gnupg gnupg_mac
+else
+  stow -t $HOME/.gnupg gnupg_linux
+fi
 
 # Install k9s customization
 mkdir -p $HOME/.config/k9s
