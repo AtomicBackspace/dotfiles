@@ -65,3 +65,4 @@
 - The user preferred PlantUML over Mermaid in the documentation guidelines.
 - After a status update, the user prefers a list of 'A, B, C' options for the next step instead of me automatically continuing with implementation.
 - Workflow Rule: When a task is marked as completed by the user and the agent has reviewed the feedback/output, the task should be removed from the TODO list (cleanup).
+- To read full file content from GitLab, use `glab api projects/:id/repository/files/:path/raw?ref=:branch`. The `search` and `semantic_code_search` tools only return snippets or metadata. When referring to Getswish repos (either directly or by context), these are the tools I want to use.
