@@ -8,6 +8,20 @@
   "general": {
     "previewFeatures": true,
     "preferredEditor": "neovim",
-    "disableAutoUpdate": true
+    "disableAutoUpdate": true,
+    "sessionRetention": {
+      "enabled": true
+    }
+  },
+  "mcpServers": {
+    "GitLab": {
+      "httpUrl": "https://gitlab.com/api/v4/mcp"
+    }
+  },
+  "experimental": {
+    "skills": true,
+    "introspectionAgentSettings": {
+      "enabled": true
+    }
   }
 }
