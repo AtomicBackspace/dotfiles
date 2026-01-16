@@ -62,3 +62,5 @@
 - Only when working in the 'zettelkasten' project, follow the 'Async Review Workflow': create implementation proposals as Obsidian notes (in '1 - Rough Notes') with a '## User Feedback' section and link them as sub-tasks in the relevant TODO file (e.g., '6 - Main Notes/TODO Work.md') for mobile review.
 - In the 'zettelkasten/' project, the 'status?' command requires analyzing git diffs since the 'last_interaction_commit' stored in 'conductor/state.json' to interpret user changes before reporting.
 - In the 'zettelkasten/' project, always update 'conductor/state.json' with the current git HEAD hash after making any commits or completing a task. This ensures the 'status?' command accurately distinguishes between my previous work and subsequent user changes.
+- The user preferred PlantUML over Mermaid in the documentation guidelines.
+- After a status update, the user prefers a list of 'A, B, C' options for the next step instead of me automatically continuing with implementation.
