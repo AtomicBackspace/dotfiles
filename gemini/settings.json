@@ -9,6 +9,10 @@
     "previewFeatures": true,
     "preferredEditor": "neovim",
     "disableAutoUpdate": true,
+    "enableAutoUpdateNotification": true,
+    "checkpointing": {
+      "enabled": true
+    },
     "sessionRetention": {
       "enabled": true
     }
@@ -28,5 +32,11 @@
     "introspectionAgentSettings": {
       "enabled": true
     }
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "telemetry": {
+    "enabled": false
   }
 }
