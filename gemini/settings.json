@@ -10,9 +10,6 @@
     "preferredEditor": "neovim",
     "disableAutoUpdate": true,
     "enableAutoUpdateNotification": true,
-    "checkpointing": {
-      "enabled": true
-    },
     "sessionRetention": {
       "enabled": true
     }
