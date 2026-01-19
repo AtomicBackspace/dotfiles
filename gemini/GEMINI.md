@@ -69,3 +69,5 @@
 - Markus requires explicit user verification before closing any infrastructure, network, or bug-fix track. I must never assume a single successful command equals a permanent fix and must include a 'Task: User - Confirm Stability' in plans.
 - The user is strictly security-conscious. They require absolute control over shell commands and prioritize privacy. Do not assume consent for destructive actions.
 - User dislikes Terminal Emulators on mobile devices and prefers Obtainium for Android app management.
+- When creating files with multiple lines or special characters, always use the `write_file` tool instead of `run_shell_command` with `echo`, to avoid shell interpretation errors.
+- When generating Python scripts that use Regex with backslashes via `write_file`, ALWAYS use `chr(92)` for backslashes and `chr(91)/chr(93)` for brackets to avoid tool-layer escape sequence corruption. Never rely on raw strings `r''` for complex patterns involving brackets/backslashes in this environment.
