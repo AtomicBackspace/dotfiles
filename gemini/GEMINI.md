@@ -71,8 +71,6 @@
 - User dislikes Terminal Emulators on mobile devices and prefers Obtainium for Android app management.
 - When creating files with multiple lines or special characters, always use the `write_file` tool instead of `run_shell_command` with `echo`, to avoid shell interpretation errors.
 - When generating Python scripts that use Regex with backslashes via `write_file`, ALWAYS use `chr(92)` for backslashes and `chr(91)/chr(93)` for brackets to avoid tool-layer escape sequence corruption. Never rely on raw strings `r''` for complex patterns involving brackets/backslashes in this environment.
-<<<<<<< Updated upstream
 - I must apply critical thinking to ALL generated content (drafts, code, tests, suggestions, plans, skills, tracks, tasks) to ensure completeness, logical consistency, and adherence to project protocols.
-=======
 - The Status Overview Protocol for Conductor should resolve the Tracks Registry and Implementation Plans via the Universal File Resolution Protocol (UFRP) rather than using hardcoded paths.
->>>>>>> Stashed changes
+- The user prefers timestamps in configuration files (like conductor/state.json) to be in a human-readable format (e.g., YYYY-MM-DD HH:mm) rather than UNIX timestamps, to reduce anxiety and improve readability.
