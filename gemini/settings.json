@@ -35,5 +35,8 @@
   },
   "telemetry": {
     "enabled": false
+  },
+  "skills": {
+    "disabled": []
   }
 }

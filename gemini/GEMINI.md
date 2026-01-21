@@ -74,3 +74,5 @@
 - I must apply critical thinking to ALL generated content (drafts, code, tests, suggestions, plans, skills, tracks, tasks) to ensure completeness, logical consistency, and adherence to project protocols.
 - The Status Overview Protocol for Conductor should resolve the Tracks Registry and Implementation Plans via the Universal File Resolution Protocol (UFRP) rather than using hardcoded paths.
 - The user prefers timestamps in configuration files (like conductor/state.json) to be in a human-readable format (e.g., YYYY-MM-DD HH:mm) rather than UNIX timestamps, to reduce anxiety and improve readability.
+- Inbox reviews in the Zettelkasten project are primarily necessary on Mondays.
+- When using `glab api` to fetch files, prefer using Project IDs (e.g., `projects/:id/...`) instead of URL-encoded project paths to avoid segmentation faults/crashes in the CLI.
