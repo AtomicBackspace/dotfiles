@@ -59,9 +59,6 @@
 
 ## Gemini Added Memories
 - The Status Overview Protocol for Conductor should resolve the Tracks Registry and Implementation Plans via the Universal File Resolution Protocol (UFRP) rather than using hardcoded paths.
-- Only when working in the 'zettelkasten' project, follow the 'Async Review Workflow': create implementation proposals as Obsidian notes (in '1 - Rough Notes') with a '## User Feedback' section and link them as sub-tasks in the relevant TODO file (e.g., '6 - Main Notes/TODO Work.md') for mobile review.
-- In the 'zettelkasten/' project, the 'status?' command requires analyzing git diffs since the 'last_interaction_commit' stored in 'conductor/state.json' to interpret user changes before reporting.
-- In the 'zettelkasten/' project, always update 'conductor/state.json' with the current git HEAD hash after making any commits or completing a task. This ensures the 'status?' command accurately distinguishes between my previous work and subsequent user changes.
 - The user preferred PlantUML over Mermaid in the documentation guidelines.
 - After a status update, the user prefers a list of 'A, B, C' options for the next step instead of me automatically continuing with implementation.
 - Workflow Rule: When a task is marked as completed by the user and the agent has reviewed the feedback/output, the task should be removed from the TODO list (cleanup).
