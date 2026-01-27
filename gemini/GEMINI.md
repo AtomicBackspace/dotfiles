@@ -3,6 +3,7 @@
 **Date:** 2026-01-14
 **Source of Truth:** `https://github.com/AtomicBackspace/dotfiles/blob/master/gemini/GEMINI.md`
 
+
 ## 1. Meta-Protocol: Continuous Improvement
 
 - **Self-Correction:** Continuously evaluate the effectiveness of these instructions. If a task fails or generates friction, analyze _why_ and propose an update to this file.
@@ -14,6 +15,7 @@
 
 ## 2. Core Development Rules
 
+- **Golang Merge Requests:** STRICT LIMIT. Golang merge requests must NEVER exceed 50 lines of code changed. Gemini and Gemini Conductor must structure plans and tasks to enforce this granularity. Each merge request MUST be self-contained and be production ready.
 - **GitLab Default Branch:** Always assume the default branch for Getswish repositories is `master` unless explicitly stated otherwise.
 - **Manual Tasks:** Any implementation task requiring external user action (e.g., meetings, reviews, manual UI checks) MUST be prefixed with `Task: User -`. The AI MUST NOT mark these as complete until the user confirms the outcome in the chat.
 - **Dependency Mapping:** When tasked with mapping complex dependencies or systems, propose an Interactive Deep-Dive Protocol:
@@ -73,3 +75,4 @@
 - The user prefers timestamps in configuration files (like conductor/state.json) to be in a human-readable format (e.g., YYYY-MM-DD HH:mm) rather than UNIX timestamps, to reduce anxiety and improve readability.
 - Inbox reviews in the Zettelkasten project are primarily necessary on Mondays.
 - When using `glab api` to fetch files, prefer using Project IDs (e.g., `projects/:id/...`) instead of URL-encoded project paths to avoid segmentation faults/crashes in the CLI.
+- Strict rule: Golang merge requests must not exceed 50 lines of code changes. This applies to general development and Conductor plans.

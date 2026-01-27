@@ -28,6 +28,9 @@
     "skills": true,
     "introspectionAgentSettings": {
       "enabled": true
+    },
+    "codebaseInvestigatorSettings": {
+      "maxNumTurns": 20
     }
   },
   "privacy": {
@@ -38,5 +41,10 @@
   },
   "skills": {
     "disabled": []
+  },
+  "context": {
+    "fileFiltering": {
+      "respectGitIgnore": false
+    }
   }
 }

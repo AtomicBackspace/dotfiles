@@ -164,7 +164,7 @@ alias k="kubectl"
 alias fzfp="fzf --preview 'bat --color=always {}'"
 alias sourceme="source ~/src/source_me.sh"
 
-TERRAFORM=$(which terraform || which tofu)
+TERRAFORM=$(which tofu || which terraform)
 alias tf="$TERRAFORM"
 alias tft="tf fmt **/*.tf"
 alias fluxsync="flux reconcile source git flux2-sync && flux reconcile kustomization flux2-sync && flux reconcile kustomization cluster-critical-kustomization && flux reconcile kustomization platform-kustomization"
