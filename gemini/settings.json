@@ -12,25 +12,12 @@
     "enableAutoUpdateNotification": true,
     "sessionRetention": {
       "enabled": true
-    }
+    },
+    "enableAutoUpdate": false
   },
   "mcpServers": {
     "GitLab": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://gitlab.com/api/v4/mcp"
-      ]
-    }
-  },
-  "experimental": {
-    "skills": true,
-    "introspectionAgentSettings": {
-      "enabled": true
-    },
-    "codebaseInvestigatorSettings": {
-      "maxNumTurns": 20
+      "httpUrl": "https://gitlab.com/api/v4/mcp"
     }
   },
   "privacy": {
