@@ -18,6 +18,12 @@
   "mcpServers": {
     "GitLab": {
       "httpUrl": "https://gitlab.com/api/v4/mcp"
+    },
+    "context7": {
+      "httpUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "Accept": "application/json, text/event-stream"
+      }
     }
   },
   "privacy": {
@@ -33,5 +39,7 @@
     "fileFiltering": {
       "respectGitIgnore": false
     }
+  "tools": {
+    "sandbox": "docker"
   }
 }

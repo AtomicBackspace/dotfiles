@@ -32,7 +32,7 @@ stow -t $HOME/.config/k9s k9s
 
 # Install hexchat
 mkdir -p $HOME/.config/hexchat
-stow -t $HOME/.config/hexchat hexchat
+stow --adopt -t $HOME/.config/hexchat hexchat
 
 # Install mpv
 mkdir -p $HOME/.config/mpv

@@ -189,7 +189,6 @@ if [ "$OSTYPE" != "linux-gnu" ]; then
 fi
 
 ## For Gemini support
-export GOOGLE_CLOUD_PROJECT="gemini-code-assist-b4b3"
 export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 
 # Make sure this is last
@@ -208,3 +207,8 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.zsh/rosepine.omp.json)"
 fi
 
+# Gemini Sandbox Configuration
+export GOOGLE_CLOUD_PROJECT="gemini-code-assist-b4b3"
+export GEMINI_CLI_HOME="/home/markus/src/gemini-home"
+export GEMINI_HOME=/home/markus/gemini-home
+export SANDBOX_FLAGS="--read-only --tmpfs /home/node:rw,exec,nosuid,nodev,uid=1000,gid=1000 --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=100 --volume /home/markus/gemini-home:/home/node/.gemini"
