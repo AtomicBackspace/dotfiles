@@ -39,12 +39,13 @@ vim.keymap.set('i', ';:', 'Ö', { noremap = true })
 
 -- Plugins
 vim.pack.add({
-  { src = "https://github.com/rose-pine/neovim" },             -- theme
-  { src = "https://github.com/echasnovski/mini.pick" },        -- telescope-light
-  { src = "https://github.com/stevearc/oil.nvim" },            -- file browser
-  { src = "https://github.com/neovim/nvim-lspconfig" },        -- LSP configurations
-  { src = "https://github.com/Tadaa/vimade" },                 -- dimming windows
-  { src = "https://github.com/iamcco/markdown-preview.nvim" }, -- markdown preview
+  { src = "https://github.com/rose-pine/neovim" },                   -- theme
+  { src = "https://github.com/echasnovski/mini.pick" },              -- telescope-light
+  { src = "https://github.com/stevearc/oil.nvim" },                  -- file browser
+  { src = "https://github.com/neovim/nvim-lspconfig" },              -- LSP configurations
+  { src = "https://github.com/Tadaa/vimade" },                       -- dimming windows
+  { src = "https://github.com/selimacerbas/markdown-preview.nvim" }, -- markdown preview
+  { src = "https://github.com/selimacerbas/live-server.nvim" },      -- markdown preview
 })
 
 require("rose-pine").setup({
@@ -64,6 +65,7 @@ require "mini.pick".setup({
 require "oil".setup({ view_options = { show_hidden = true } })
 require "vimade".setup({ ncmode = "windows", fadelevel = 0.65 })
 
+
 vim.keymap.set('n', '<C-f>', ":Pick files<CR>")
 vim.keymap.set('n', '<C-g>', ":Pick grep_live<CR>")
 vim.keymap.set('n', '<C-e>', ":Oil<CR>")
@@ -72,19 +74,6 @@ vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float)
 vim.api.nvim_create_user_command("E", function()
   require("oil").open()
 end, {})
-
-vim.g.mkdp_preview_options = {
-  markdown_it_plugins = {
-    "markdown-it-plantuml"
-  },
-  uml = {
-    server = "http://127.0.0.1:8889"
-  }
-}
-
-vim.g.markdown_fenced_languages = {
-  "js=javascript"
-}
 
 -- LSP Features
 -- For key bindings, look at `lsp-defaults` in help
