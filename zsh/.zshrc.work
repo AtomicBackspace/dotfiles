@@ -55,3 +55,8 @@ alias add_secret="f() { echo \"Run this command:\" && echo \"§ security add-gen
 alias gl_tf_state="glab opentofu init -R $(git remote get-url --all origin | sed 's/git@gitlab.com://' | sed 's/.git$//') default"
 
 glab auth configure-docker
+
+# Gemini sandboc
+#export GEMINI_CLI_HOME="/Users/markus.langenoja/src/gemini-home"
+#export SANDBOX_FLAGS="--network gemini-sandbox-network --env HTTP_PROXY=http://gemini-proxy:28080 --env HTTPS_PROXY=http://gemini-proxy:28080 --read-only --tmpfs /home/node:rw,exec,nosuid,nodev,uid=1000,gid=1000 --tmpfs /tmp:rw,exec,nosuid,nodev --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=100"
+export PATH="$HOME/.local/bin:$PATH"

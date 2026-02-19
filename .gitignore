@@ -2,3 +2,6 @@ vim/.vim/.netrwhist
 vim/.vim/bundle/*
 vim/.vim/pack/*
 .DS_Store
+node_modules
+package-lock.json
+package.json
