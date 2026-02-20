@@ -1,45 +1,34 @@
 {
-  "security": {
-    "auth": {
-      "selectedType": "oauth-personal"
-    },
-    "disableYoloMode": true
+  "experimental": {
+    "enableAgents": true,
+    "plan": true
   },
   "general": {
-    "previewFeatures": true,
-    "preferredEditor": "neovim",
-    "disableAutoUpdate": true,
-    "enableAutoUpdateNotification": true,
-    "sessionRetention": {
-      "enabled": true
-    },
-    "enableAutoUpdate": false
+    "defaultApprovalMode": "default",
+    "preferredEditor": "neovim"
   },
-  "mcpServers": {
-    "GitLab": {
-      "httpUrl": "https://gitlab.com/api/v4/mcp"
-    },
-    "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp",
-      "headers": {
-        "Accept": "application/json, text/event-stream"
+  "hooks": {
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "command": "/usr/local/bin/gatekeeper",
+            "name": "gatekeeper",
+            "type": "command"
+          }
+        ]
       }
+    ]
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    },
+    "environmentVariableRedaction": {
+      "enabled": true
     }
   },
-  "privacy": {
-    "usageStatisticsEnabled": false
-  },
-  "telemetry": {
-    "enabled": false
-  },
-  "skills": {
-    "disabled": []
-  },
-  "context": {
-    "fileFiltering": {
-      "respectGitIgnore": false
-    }
   "tools": {
-    "sandbox": "docker"
+    "disableLLMCorrection": true
   }
 }

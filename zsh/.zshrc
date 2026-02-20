@@ -209,6 +209,3 @@ fi
 
 # Gemini Sandbox Configuration
 export GOOGLE_CLOUD_PROJECT="gemini-code-assist-b4b3"
-export GEMINI_CLI_HOME="/home/markus/src/gemini-home"
-export GEMINI_HOME=/home/markus/gemini-home
-export SANDBOX_FLAGS="--read-only --tmpfs /home/node:rw,exec,nosuid,nodev,uid=1000,gid=1000 --cap-drop=ALL --security-opt=no-new-privileges --pids-limit=100 --volume /home/markus/gemini-home:/home/node/.gemini"

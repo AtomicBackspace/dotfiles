@@ -40,4 +40,4 @@ stow -t $HOME/.config/mpv mpv
 
 # Install gemini
 mkdir -p $HOME/.gemini
-stow -t $HOME/.gemini gemini
+stow -t $HOME/.gemini gemini --adopt
