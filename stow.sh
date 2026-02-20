@@ -36,7 +36,7 @@ stow --adopt -t $HOME/.config/hexchat hexchat
 
 # Install mpv
 mkdir -p $HOME/.config/mpv
-stow -t $HOME/.config/mpv mpv
+stow -t $HOME/.config/mpv mpv --adopt
 
 # Install gemini
 mkdir -p $HOME/.gemini
