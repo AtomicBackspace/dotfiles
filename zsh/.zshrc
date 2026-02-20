@@ -200,6 +200,8 @@ echo "Adding istio completion"
 . <(istioctl completion zsh)
 echo "Adding bob completion"
 . <(bob complete zsh)
+echo "Adding gatekeeper completion"
+. <(gatekeeper completion zsh)
 echo "Adding zoxide"
 eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
