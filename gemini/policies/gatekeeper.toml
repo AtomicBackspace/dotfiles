@@ -1,5 +1,11 @@
 [[rule]]
 toolName = "run_shell_command"
+commandPrefix = ["npx", "prettier", "--write"]
+decision = "allow"
+priority = 110
+
+[[rule]]
+toolName = "run_shell_command"
 commandPrefix = ["gatekeeper", "/usr/local/bin/gatekeeper"]
 decision = "allow"
 priority = 390
