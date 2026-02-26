@@ -1,0 +1,12 @@
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = "git push"
+decision = "deny"
+priority = 500
+deny_message = "Git push is explicitly excluded by workspace policy."
+
+[[rule]]
+toolName = "run_shell_command"
+commandPrefix = ["git add", "git status", "git diff", "git commit"]
+decision = "allow"
+priority = 400
