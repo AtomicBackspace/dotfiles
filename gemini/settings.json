@@ -1,0 +1,74 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "telemetry": {
+    "enabled": false
+  },
+  "general": {
+    "disableAutoUpdate": true,
+    "enableAutoUpdate": false,
+    "enableAutoUpdateNotification": true,
+    "preferredEditor": "neovim",
+    "previewFeatures": true,
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "30d",
+      "warningAcknowledged": true
+    }
+  },
+  "experimental": {
+    "plan": true
+  },
+  "hooks": {
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "command": "/usr/local/bin/gatekeeper --check --agent --selective",
+            "name": "gatekeeper-blocking",
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ],
+    "AfterTool": [
+      {
+        "hooks": [
+          {
+            "command": "/usr/local/bin/gatekeeper --check --agent --selective --advisory",
+            "name": "gatekeeper-advisory",
+            "type": "command"
+          }
+        ],
+        "matcher": "write_file|replace|run_shell_command|edit_file"
+      }
+    ]
+  },
+  "hooksConfig": {
+    "disabled": []
+  },
+  "mcpServers": {
+    "GitLab": {
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://gitlab.com/api/v4/mcp"
+      ],
+      "command": "npx",
+      "env": {}
+    },
+    "datadog": {
+      "args": [],
+      "command": "/Users/markus.langenoja/.local/bin/datadog_mcp_cli",
+      "env": {},
+      "type": "stdio"
+    }
+  }
+}

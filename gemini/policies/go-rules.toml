@@ -1,5 +1,0 @@
-[[rule]]
-toolName = "run_shell_command"
-commandPrefix = ["go fmt .*", "gofmt .*", "go test.*", "govulncheck .*", "golangci-lint .*", "go tool cover .*"]
-decision = "allow"
-priority = 380

@@ -1,5 +1,0 @@
-[[rule]]
-toolName = "run_shell_command"
-commandPrefix = ["bash", "\".*/.gemini/extensions/ralph/scripts.setup.sh\""]
-decision = "allow"
-priority = 120
