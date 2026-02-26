@@ -22,6 +22,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Fix GPG interface with Yubikey
 export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export EDITOR="nvim"
@@ -207,6 +208,7 @@ eval "$(zoxide init zsh)"
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   echo "Adding oh-my-posh"
   eval "$(oh-my-posh init zsh --config $HOME/.zsh/rosepine.omp.json)"
+  alias gcli='tmux attach -t gemini || tmux new -s gemini'
 fi
 
 # Gemini Sandbox Configuration

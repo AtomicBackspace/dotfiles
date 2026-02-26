@@ -1,0 +1,11 @@
+version: "1"
+test-coverage:
+  enabled: false
+formatting:
+  enabled: false
+linting:
+  enabled: false
+security:
+  enabled: true
+performance-limits:
+  slow_threshold: 2s

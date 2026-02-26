@@ -1,0 +1,48 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  default: standard
+  enable:
+    - gosec
+    - depguard
+    - revive
+
+  settings:
+    depguard:
+      rules:
+        main:
+          files:
+            - $all
+          allow:
+            - $gostd
+            - gatekeeper
+            - github.com/stretchr/testify
+            - github.com/spf13/cobra
+            - github.com/spf13/pflag
+            - gopkg.in/yaml.v3
+
+  exclusions:
+    rules:
+      - linters: [revive]
+        text: "exported: .* should have comment"
+      - linters: [revive]
+        text: "package-comments: should have a package comment"
+      - linters: [revive]
+        text: "unused-parameter: parameter '.*' seems to be unused"
+      - linters: [revive]
+        text: "empty-block: this block is empty"
+      - linters: [revive]
+        text: "var-naming: avoid package names that conflict"
+      - linters: [revive]
+        text: "stutters"
+      - linters: [errcheck]
+        text: "Error return value of .*(Write|Close|Setenv|Unsetenv|Remove|RemoveAll|MkdirAll|Fprintf|Chdir|Copy|Open|ReadFile|WriteFile).* is not checked"
+      - linters: [staticcheck]
+        text: "QF1003:|SA9003:"
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
